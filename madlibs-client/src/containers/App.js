@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import Madlibs from './Madlibs';
 
+const API_URL = process.env.REACT_APP_API_URL
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -11,18 +13,16 @@ class App extends Component {
     }
   }
 
-
-
   componentDidMount(){
 
     const headers = new Headers({
-      // 'Accept': 'application/json',
-      // 'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*'
     })
 // const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-    fetch('http://localhost:3000/api/madlibs', {
+    fetch(`${API_URL}/madlibs`, {
       headers: headers,
       // mode: 'no-cors'
     })
