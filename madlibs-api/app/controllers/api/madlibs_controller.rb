@@ -22,7 +22,7 @@ class Api::MadlibsController < ApplicationController
     if @madlib.update(madlib_params)
       render json: @madlib
     else
-      render json: { message: madlib.errors }, status: 400
+      render json: { message: @madlib.errors }, status: 400
     end
   end
 
