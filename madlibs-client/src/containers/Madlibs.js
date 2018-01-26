@@ -1,11 +1,10 @@
 import React from 'react';
+import MadlibSentence from '../components/MadlibSentence';
 
 const Madlibs = (props) => (
   <div>
     <h3>Madlibs</h3>
-    {props.madlibs.map(madlib =>
-      <h2 key = {madlib.id}>The {madlib.adj} {madlib.noun} always wanted to learn how to {madlib.verb}.</h2>
-    )}
+    {props.madlibs.map(madlib => <MadlibSentence key = {madlib.id} madlib={madlib} />)}
   </div>
 )
 
