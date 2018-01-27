@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import MadlibSentence from '../components/MadlibSentence';
+import MadlibForm from './MadlibForm'
 
-const Madlibs = (props) => (
-  <div>
-    <h3>Madlibs</h3>
-    {props.madlibs.map(madlib => <MadlibSentence key = {madlib.id} madlib={madlib} />)}
-  </div>
-)
+class Madlibs extends Component {
+
+  render() {
+    return(
+      <div>
+        <h3>Madlibs</h3>
+        {this.props.madlibs.map(madlib => <MadlibSentence key = {madlib.id} madlib={madlib} />)}
+        <MadlibForm />
+      </div>
+    )
+  }
+}
 
 export default Madlibs;
