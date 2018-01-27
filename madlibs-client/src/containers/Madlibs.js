@@ -14,8 +14,8 @@ class Madlibs extends Component {
     return(
       <div>
         <h3>Madlibs</h3>
-        {this.props.madlibs.map(madlib => <MadlibSentence key = {madlib.id} madlib={madlib} />)}
         <MadlibForm />
+        <p>{this.props.madlibs.map(madlib => <MadlibSentence key={madlib.id} madlib={madlib} />)}</p>
       </div>
     );
   }

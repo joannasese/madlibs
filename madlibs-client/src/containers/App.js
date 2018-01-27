@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Madlibs from './Madlibs';
-import { getMadlibs } from '../actions/madlibs';
-
+// import { getMadlibs } from '../actions/madlibs';
 
 class App extends Component {
   // constructor(props){
@@ -30,7 +29,7 @@ class App extends Component {
   // }
 
   render() {
-    console.log(this.state)
+    console.log(Madlibs)
     return (
       <div className="App">
         <Madlibs />
