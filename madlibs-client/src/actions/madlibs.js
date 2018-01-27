@@ -1,6 +1,5 @@
 const API_URL = process.env.REACT_APP_API_URL
 
-//action creators
 const setMadlibs = madlibs => {
   return {
     type: 'GET_MADLIBS_SUCCESS',
@@ -8,7 +7,6 @@ const setMadlibs = madlibs => {
   }
 }
 
-// async actions
 export const getMadlibs = () => {
 
   const headers = new Headers({
@@ -16,12 +14,12 @@ export const getMadlibs = () => {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
   })
-  dispatch => {
+  return dispatch => {
     return fetch(`${API_URL}/madlibs`, {
       headers: headers,
     })
       .then(response => response.json())
-      .then(madlibs => dispatch(setMadlibs))
+      .then(madlibs => dispatch(setMadlibs(madlibs)))
       .catch(error => console.log(error))
   }
 }

@@ -17,7 +17,7 @@ class Madlibs extends Component {
         {this.props.madlibs.map(madlib => <MadlibSentence key = {madlib.id} madlib={madlib} />)}
         <MadlibForm />
       </div>
-    )
+    );
   }
 }
 

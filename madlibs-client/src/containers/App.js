@@ -33,7 +33,7 @@ class App extends Component {
     console.log(this.state)
     return (
       <div className="App">
-        <Madlibs madlibs={this.state.madlibs} />
+        <Madlibs />
       </div>
     )
   }
