@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect} from 'react-redux';
 import MadlibSentence from '../components/MadlibSentence';
 import MadlibForm from './MadlibForm'
+import { getMadlibs } from '../actions/madlibs';
 
 class Madlibs extends Component {
 
   componentDidMount() {
-
+    this.props.getMadlibs()
   }
 
   render() {
@@ -26,4 +27,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(Madlibs);
+export default connect(mapStateToProps, { getMadlibs })(Madlibs);
