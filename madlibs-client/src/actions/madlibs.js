@@ -7,6 +7,13 @@ const setMadlibs = madlibs => {
   }
 }
 
+const addMadlib = madlib => {
+  return {
+    type: 'CREATE_MADLIB_SUCCESS',
+    madlib
+  }
+}
+
 export const getMadlibs = () => {
 
   const headers = new Headers({
@@ -20,6 +27,23 @@ export const getMadlibs = () => {
     })
       .then(response => response.json())
       .then(madlibs => dispatch(setMadlibs(madlibs)))
+      .catch(error => console.log(error))
+  }
+}
+
+export const createMadlib = madlib => {
+  return dispatch => {
+    return fetch(`${API_URL}/madlibs`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ madlib: madlib })
+    })
+      .then(response => response.json())
+      .then(madlib => {
+        dispatch(addMadlib(madlib))
+      })
       .catch(error => console.log(error))
   }
 }
