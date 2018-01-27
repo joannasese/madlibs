@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { connect} from 'react-redux';
 import MadlibSentence from '../components/MadlibSentence';
 import MadlibForm from './MadlibForm'
 
 class Madlibs extends Component {
+
+  componentDidMount() {
+
+  }
 
   render() {
     return(
@@ -15,4 +20,10 @@ class Madlibs extends Component {
   }
 }
 
-export default Madlibs;
+const mapStateToProps = (state) => {
+  return ({
+    madlibs: state.madlibs
+  })
+}
+
+export default connect(mapStateToProps)(Madlibs);
