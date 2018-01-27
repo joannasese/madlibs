@@ -4,7 +4,7 @@ import MadlibSentence from '../components/MadlibSentence';
 import MadlibForm from './MadlibForm'
 import { getMadlibs } from '../actions/madlibs';
 
-class Madlibs extends Component {
+export class Madlibs extends Component {
 
   componentDidMount() {
     this.props.getMadlibs()
