@@ -13,11 +13,19 @@ class Madlibs extends Component {
   }
 
   render() {
+    console.log(this.props.madlibs)
     return(
       <div>
         <h3>Madlibs</h3>
         <MadlibForm />
-        <p>{this.props.madlibs.map(madlib => <MadlibSentence key={madlib.id} madlib={madlib} />)}</p>
+        <div>
+          {this.props.madlibs.map((madlib, index, array) => {
+            console.log(index)
+            if (array.length-1 === index) {
+              return <MadlibSentence key={madlib.id} madlib={madlib} />
+            }
+          })}
+        </div>
       </div>
     );
   }

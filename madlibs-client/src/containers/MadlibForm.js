@@ -40,6 +40,7 @@ class MadlibForm extends Component {
               onChange={this.handleOnChange}
               name="noun"
               value={noun}
+              placeholder="Ex: doohickey"
             />
           </div>
           <div>
@@ -49,6 +50,7 @@ class MadlibForm extends Component {
               onChange={this.handleOnChange}
               name="adj"
               value={adj}
+              placeholder="Ex: cantakerous"
             />
           </div>
           <div>
@@ -58,6 +60,7 @@ class MadlibForm extends Component {
               onChange={this.handleOnChange}
               name="verb"
               value={verb}
+              placeholder="Ex: defenestrate"
             />
           </div>
           <button type="submit">Let's go!</button>
