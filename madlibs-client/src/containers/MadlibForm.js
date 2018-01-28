@@ -15,9 +15,10 @@ class MadlibForm extends Component {
   // }
 
   handleOnChange = event => {
-    const currentMadlibFormData = Object.assign({}, this.props.madlibFormData, (
-      [window.name]: value
-    ))
+    const { name, value } = event.target;
+    const currentMadlibFormData = Object.assign({}, this.props.madlibFormData, {
+      [name]: value
+    })
     this.props.updateMadlibFormData(currentMadlibFormData)
   }
 
@@ -30,10 +31,10 @@ class MadlibForm extends Component {
     const { noun, adj, verb } = this.props.madlibFormData;
     return (
       <div>
-        Submit words for madlib.
+        It's madlib time! Fill in the blanks for a wacky madlib!
         <form onSubmit={this.handleOnSubmit}>
           <div>
-            <label htmlFor="noun">Noun:</label>
+            <label>Noun:</label>
             <input
               type="text"
               onChange={this.handleOnChange}
@@ -42,7 +43,7 @@ class MadlibForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor="adj">Adjective:</label>
+            <label>Adjective:</label>
             <input
               type="text"
               onChange={this.handleOnChange}
@@ -51,7 +52,7 @@ class MadlibForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor="verb">Verb:</label>
+            <label>Verb:</label>
             <input
               type="text"
               onChange={this.handleOnChange}
@@ -59,7 +60,7 @@ class MadlibForm extends Component {
               value={verb}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit">Let's go!</button>
         </form>
       </div>
     )
@@ -76,5 +77,3 @@ export default connect(mapStateToProps, {
   updateMadlibFormData,
   createMadlib
 })(MadlibForm);
-
-// export default MadlibForm;
