@@ -1,3 +1,5 @@
+//actions
+
 export const updateMadlibFormData = madlibFormData => {
   return {
     type: 'UPDATED_DATA',

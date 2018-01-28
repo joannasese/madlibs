@@ -1,3 +1,5 @@
+//components
+
 import React from 'react';
 
 const MadlibSentence = ({ madlib }) => (

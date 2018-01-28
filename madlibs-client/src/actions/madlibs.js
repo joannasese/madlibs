@@ -1,3 +1,7 @@
+//actions
+
+import { resetMadlibForm } from './madlibForm';
+
 const API_URL = process.env.REACT_APP_API_URL
 
 const setMadlibs = madlibs => {
@@ -15,7 +19,6 @@ const addMadlib = madlib => {
 }
 
 export const getMadlibs = () => {
-
   const headers = new Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -43,6 +46,7 @@ export const createMadlib = madlib => {
       .then(response => response.json())
       .then(madlib => {
         dispatch(addMadlib(madlib))
+        dispatch(resetMadlibForm())
       })
       .catch(error => console.log(error))
   }
