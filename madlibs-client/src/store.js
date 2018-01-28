@@ -5,10 +5,12 @@ import {
 } from 'redux';
 
 import thunk from 'redux-thunk';
-import madlibs from './reducers/madlibs'
+import madlibs from './reducers/madlibs';
+import madlibFormData from './reducers/madlibFormData';
 
 const reducers = combineReducers({
-  madlibs: madlibs
+  madlibs: madlibs,
+  madlibFormData: madlibFormData
 });
 
 const middleware = [thunk];
