@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
@@ -11,9 +11,17 @@ const NavBar = () =>
         <IndexLinkContainer to='/' >
           <NavItem>Home</NavItem>
         </IndexLinkContainer>
-        <LinkContainer to='/madlibs'>
-          <NavItem>Madlibs</NavItem>
-        </LinkContainer>
+
+        <NavDropdown title="Madlibs" id="basic-nav-dropdown">
+          <LinkContainer to='/madlibs'>
+            <MenuItem>Create</MenuItem>
+          </LinkContainer>
+          <LinkContainer to='/all-madlibs'>
+            <MenuItem eventKey>All Madlibs</MenuItem>
+          </LinkContainer>
+          <MenuItem eventKey={3.3}>Something else here</MenuItem>
+        </NavDropdown>
+
         <LinkContainer to='/random-nonsense'>
           <NavItem>Random Nonsense</NavItem>
         </LinkContainer>

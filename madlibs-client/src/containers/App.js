@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from '../components/Navbar';
 import Home from '../components/Home';
 import MadlibForm from './MadlibForm';
+import AllMadlibs from './AllMadlibs';
 import Video from '../components/Video';
 // import { getMadlibs } from '../actions/madlibs';
 
@@ -39,6 +40,7 @@ class App extends Component {
           <NavBar className="navbar" />
           <Route exact path="/" component={Home} />
           <Route exact path="/madlibs" component={MadlibForm} />
+          <Route exact path="/all-madlibs" component={AllMadlibs} />
           <Route exact path="/random-nonsense" component={Video} />
         </div>
       </Router>

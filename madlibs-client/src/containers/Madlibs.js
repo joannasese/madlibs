@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect} from 'react-redux';
 import { getMadlibs } from '../actions/madlibs';
+import MadlibSentence from '../components/MadlibSentence';
 
 const Madlibs = ({madlibs}) =>
   <div>
@@ -19,6 +20,9 @@ const Madlibs = ({madlibs}) =>
         if (madlib.noun && madlib.adj && madlib.verb){
           const phrase = phrases[Math.floor(Math.random()*phrases.length)];
           return phrase;
+
+          // return <MadlibSentence key={madlib.id} madlib={madlib} />
+
         } else {
           return "Hey, you forgot something!"
         }
