@@ -13,14 +13,11 @@ class Madlibs extends Component {
   }
 
   render() {
-    console.log(this.props.madlibs)
     return(
       <div>
-        <h3>Madlibs</h3>
-        <MadlibForm />
+        <h3>Madlibs Container</h3>
         <div>
           {this.props.madlibs.map((madlib, index, array) => {
-            console.log(index)
             if (array.length-1 === index) {
               return <MadlibSentence key={madlib.id} madlib={madlib} />
             }
@@ -32,9 +29,9 @@ class Madlibs extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return ({
-    madlibs: state.madlibs
-  })
+  return ({madlibs: state.madlibs})
 }
 
-export default connect(mapStateToProps, { getMadlibs })(Madlibs);
+export default connect(mapStateToProps, {
+  getMadlibs
+})(Madlibs);

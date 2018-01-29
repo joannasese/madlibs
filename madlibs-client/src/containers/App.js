@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from '../components/Navbar';
 import Home from '../components/Home';
 import Madlibs from './Madlibs';
+import MadlibForm from './MadlibForm';
 // import { getMadlibs } from '../actions/madlibs';
 
 class App extends Component {
@@ -32,13 +33,12 @@ class App extends Component {
   // }
 
   render() {
-    console.log(Madlibs)
     return (
       <Router>
         <div className="App">
           <NavBar className="navbar" />
           <Route exact path="/" component={Home} />
-          <Route exact path="/madlibs" component={Madlibs} />
+          <Route exact path="/madlibs" component={MadlibForm} />
         </div>
       </Router>
     )
