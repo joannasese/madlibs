@@ -45,7 +45,7 @@ class MadlibForm extends Component {
               onChange={this.handleOnChange}
               name="adj"
               value={adj}
-              placeholder="Ex: cantakerous"
+              placeholder="Ex: cantankerous"
             />
           </div>
           <div>
