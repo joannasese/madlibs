@@ -16,6 +16,9 @@ class AllMadlibs extends Component {
       <div>
       <h3>All madlibs</h3>
       <Madlibs />
+      {madlibs.map((madlib, index, array) => {
+        
+      })}
       </div>
     )
   }
