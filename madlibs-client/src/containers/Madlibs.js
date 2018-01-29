@@ -16,21 +16,28 @@ const Madlibs = ({madlibs}) =>
         <p key={madlib.id}>Heavy is the <strong>{madlib.noun}</strong> that needs to <strong>{madlib.verb}</strong> during <strong>{madlib.adj}</strong> hour.</p>
       ];
 
+      const phrase = phrases[Math.floor(Math.random()*phrases.length)];
+
+
       if (array.length-1 === index) {
         if (madlib.noun && madlib.adj && madlib.verb){
-          const phrase = phrases[Math.floor(Math.random()*phrases.length)];
-          return phrase;
+
+          // phrases.map((phrase, madlib)=> {
+            return phrase
+          // })
+
+          // const phrase = phrases[Math.floor(Math.random()*phrases.length)];
+          // return phrase;
 
           // return <MadlibSentence key={madlib.id} madlib={madlib} />
+
 
         } else {
           return "Hey, you forgot something!"
         }
-      }
+      } 
     })}
   </div>
-
-
 
 // class Madlibs extends Component {
 //
@@ -54,6 +61,7 @@ const Madlibs = ({madlibs}) =>
 //   }
 // }
 //
+
 const mapStateToProps = (state) => {
   return ({madlibs: state.madlibs})
 }
