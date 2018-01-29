@@ -39,7 +39,7 @@ class App extends Component {
           <NavBar className="navbar" />
           <Route exact path="/" component={Home} />
           <Route exact path="/madlibs" component={MadlibForm} />
-          <Route exact path="/random-cute" component={Video} />
+          <Route exact path="/random-nonsense" component={Video} />
         </div>
       </Router>
     )
