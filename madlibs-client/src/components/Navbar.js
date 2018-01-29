@@ -14,6 +14,9 @@ const NavBar = () =>
         <LinkContainer to='/madlibs'>
           <NavItem>Madlibs</NavItem>
         </LinkContainer>
+        <LinkContainer to='/random-cute'>
+          <NavItem>Random Cute</NavItem>
+        </LinkContainer>
       </Nav>
     </Navbar>
   </div>

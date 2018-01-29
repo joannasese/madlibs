@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from '../components/Navbar';
 import Home from '../components/Home';
-import Madlibs from './Madlibs';
 import MadlibForm from './MadlibForm';
+import Video from '../components/Video';
 // import { getMadlibs } from '../actions/madlibs';
 
 class App extends Component {
@@ -39,6 +39,7 @@ class App extends Component {
           <NavBar className="navbar" />
           <Route exact path="/" component={Home} />
           <Route exact path="/madlibs" component={MadlibForm} />
+          <Route exact path="/random-cute" component={Video} />
         </div>
       </Router>
     )
