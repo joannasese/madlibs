@@ -9,30 +9,6 @@ import Video from '../components/Video';
 // import { getMadlibs } from '../actions/madlibs';
 
 class App extends Component {
-  // constructor(props){
-  //   super(props)
-  //
-  //   this.state = {
-  //     madlibs: []
-  //   }
-  // }
-
-  // componentDidMount(){
-  //   this.props.getMadlibs()
-    // const headers = new Headers({
-    //   'Accept': 'application/json',
-    //   'Content-Type': 'application/json',
-    //   'Access-Control-Allow-Origin': '*'
-    // })
-    //
-    // fetch(`${API_URL}/madlibs`, {
-    //   headers: headers,
-    //   // mode: 'no-cors'
-    // })
-    //   .then(response => response.json())
-    //   .then(madlibs => this.setState({ madlibs }))
-  // }
-
   render() {
     return (
       <Router>
@@ -40,7 +16,7 @@ class App extends Component {
           <NavBar className="navbar" />
           <Route exact path="/" component={Home} />
           <Route exact path="/madlibs" component={MadlibForm} />
-          <Route exact path="/all-madlibs" component={AllMadlibs} />
+          <Route exact path="/more-madlibs" component={AllMadlibs} />
           <Route exact path="/random-nonsense" component={Video} />
         </div>
       </Router>

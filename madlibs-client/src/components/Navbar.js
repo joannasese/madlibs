@@ -16,10 +16,9 @@ const NavBar = () =>
           <LinkContainer to='/madlibs'>
             <MenuItem>Create</MenuItem>
           </LinkContainer>
-          <LinkContainer to='/all-madlibs'>
-            <MenuItem eventKey>All Madlibs</MenuItem>
+          <LinkContainer to='/more-madlibs'>
+            <MenuItem eventKey>More Madlibs</MenuItem>
           </LinkContainer>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
         </NavDropdown>
 
         <LinkContainer to='/random-nonsense'>

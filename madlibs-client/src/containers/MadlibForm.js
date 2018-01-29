@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './App.css';
 import { updateMadlibFormData } from '../actions/madlibForm';
 import { createMadlib } from '../actions/madlibs';
 import Madlibs from './Madlibs';
@@ -26,8 +27,8 @@ class MadlibForm extends Component {
     return (
       <div>
       <h3>Madlib Form</h3>
-        It is madlib time! Fill in the blanks for a wacky madlib!
-        <form onSubmit={this.handleOnSubmit} name="madlibForm">
+        It is madlib time! Fill in the blanks for a wacky madlib!<br />
+        <form onSubmit={this.handleOnSubmit} className="madlibForm">
           <div>
             <label>Noun:</label>
             <input
@@ -58,7 +59,7 @@ class MadlibForm extends Component {
               placeholder="Ex: defenestrate"
             />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="button">Submit</button>
         </form>
         <Madlibs />
       </div>
