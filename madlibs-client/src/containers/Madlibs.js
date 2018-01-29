@@ -8,10 +8,11 @@ import { getMadlibs } from '../actions/madlibs';
 const Madlibs = ({madlibs}) =>
   <div>
     {madlibs.map((madlib, index, array) => {
-      
+
       let phrases = [
-        `The ${madlib.adj} ${madlib.noun} enjoys when I ${madlib.verb}.`,
-        `Everyone would ${madlib.verb} a ${madlib.adj} ${madlib.noun}.`
+        <p>The <strong>{madlib.adj} {madlib.noun}</strong> enjoys when I <strong>{madlib.verb}</strong>.</p>,
+        <p>Everyone would <strong>{madlib.verb}</strong> a <strong>{madlib.adj} {madlib.noun}</strong>.</p>,
+        <p>Sometimes I wish <strong>{madlib.noun}</strong></p>
       ];
 
       if (array.length-1 === index) {
