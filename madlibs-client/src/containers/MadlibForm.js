@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { updateMadlibFormData } from '../actions/madlibForm';
 import { createMadlib } from '../actions/madlibs';
 import Madlibs from './Madlibs';
+import { ConnectededMadlibs } from './Madlibs';
 
 class MadlibForm extends Component {
 
@@ -27,7 +28,7 @@ class MadlibForm extends Component {
       <div>
       <h3>Madlib Form</h3>
         It is madlib time! Fill in the blanks for a wacky madlib!
-        <form onSubmit={this.handleOnSubmit}>
+        <form onSubmit={this.handleOnSubmit} name="madlibForm">
           <div>
             <label>Noun:</label>
             <input
