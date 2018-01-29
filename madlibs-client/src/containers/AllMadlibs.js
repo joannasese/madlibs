@@ -1,35 +1,27 @@
-import React, { Component } from 'react';
+//containers
+
+import React from 'react';
 import { connect} from 'react-redux';
 import { getMadlibs } from '../actions/madlibs';
-import Madlibs from './Madlibs';
+import MadlibSentence from '../components/MadlibSentence';
 
-// const AllMadlibs = ({Madlibs}) =>
-//   <div>
-//     {Madlibs.map((madlib) => {
-//       return madlib
-//     })}
-//   </div>
+const All = ({madlibs}) =>
+  <div>
+    {madlibs.map((madlib, index, array) => {
 
-class AllMadlibs extends Component {
-  render() {
-    return (
-      <div>
-      <h3>All madlibs</h3>
-      <Madlibs />
-      {madlibs.map((madlib, index, array) => {
-        
-      })}
-      </div>
-    )
-  }
-}
+      if (madlib.noun && madlib.adj && madlib.verb){
+        return <MadlibSentence key={madlib.id} madlib={madlib} />
+      } else {
+        return "Hey, you forgot something!"
+      }
+
+    })}
+  </div>
 
 const mapStateToProps = (state) => {
   return ({madlibs: state.madlibs})
 }
 
-// export default connect(mapStateToProps, {
-//   getMadlibs
-// })(AllMadlibs);
-
-export default AllMadlibs;
+export default connect(mapStateToProps, {
+  getMadlibs
+})(All);
