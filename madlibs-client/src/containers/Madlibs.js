@@ -1,8 +1,7 @@
 //containers
 
-import React, { Component } from 'react';
+import React from 'react';
 import { connect} from 'react-redux';
-import MadlibForm from './MadlibForm'
 import { getMadlibs } from '../actions/madlibs';
 
 const Madlibs = ({madlibs}) =>
@@ -10,9 +9,10 @@ const Madlibs = ({madlibs}) =>
     {madlibs.map((madlib, index, array) => {
 
       let phrases = [
-        <p>The <strong>{madlib.adj} {madlib.noun}</strong> enjoys when I <strong>{madlib.verb}</strong>.</p>,
-        <p>Everyone would <strong>{madlib.verb}</strong> a <strong>{madlib.adj} {madlib.noun}</strong>.</p>,
-        <p>Sometimes I wish <strong>{madlib.noun}</strong></p>
+        <p key={madlib.id}>The <strong>{madlib.adj} {madlib.noun}</strong> enjoys when I <strong>{madlib.verb}</strong>.</p>,
+        <p key={madlib.id}>Everyone would <strong>{madlib.verb}</strong> a <strong>{madlib.adj} {madlib.noun}</strong>.</p>,
+        <p key={madlib.id}>Sometimes I wish <strong>{madlib.noun}</strong> would be <strong>{madlib.adj}</strong> when it is time to <strong>{madlib.verb}</strong>.</p>,
+        <p key={madlib.id}>Heavy is the <strong>{madlib.noun}</strong> that needs to <strong>{madlib.verb}</strong> during <strong>{madlib.adj}</strong> hour.</p>
       ];
 
       if (array.length-1 === index) {
@@ -22,7 +22,6 @@ const Madlibs = ({madlibs}) =>
         } else {
           return "Hey, you forgot something!"
         }
-        // return <MadlibSentence key={madlib.id} madlib={madlib} />
       }
     })}
   </div>

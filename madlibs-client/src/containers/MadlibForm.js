@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { updateMadlibFormData } from '../actions/madlibForm';
 import { createMadlib } from '../actions/madlibs';
 import Madlibs from './Madlibs';
-import { ConnectededMadlibs } from './Madlibs';
 
 class MadlibForm extends Component {
 
