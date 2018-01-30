@@ -18,21 +18,21 @@ class Api::MadlibsController < ApplicationController
     render json: @madlib
   end
 
-  def update
-    if @madlib.update(madlib_params)
-      render json: @madlib
-    else
-      render json: { message: @madlib.errors }, status: 400
-    end
-  end
+  # def update
+  #   if @madlib.update(madlib_params)
+  #     render json: @madlib
+  #   else
+  #     render json: { message: @madlib.errors }, status: 400
+  #   end
+  # end
 
-  def destroy
-    if @madlib.destroy
-      render json: { message: "In the trash" }, status: 204
-    else
-      render json: { message: "Unable to destroy" }, status: 400
-    end
-  end
+  # def destroy
+  #   if @madlib.destroy
+  #     render json: { message: "In the trash" }, status: 204
+  #   else
+  #     render json: { message: "Unable to destroy" }, status: 400
+  #   end
+  # end
 
   private
 
