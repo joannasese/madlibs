@@ -21,10 +21,14 @@ const Madlibs = ({madlibs}) =>
     })}
   </div>
 
+// in mapStateToProps() we specify exactly which slice of the state
+// we want to provide to our component.
 const mapStateToProps = (state) => {
   return ({madlibs: state.madlibs})
 }
 
+// Use connect to give component ability to get data from the store's internal state
+// and re-render and get new data when that state changes
 export default connect(mapStateToProps, {
-  getMadlibs
+  getMadlibs //equivalent to mapDispatchToProps, except return statement is in actions.
 })(Madlibs);

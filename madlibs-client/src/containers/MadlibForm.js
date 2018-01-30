@@ -11,6 +11,9 @@ class MadlibForm extends Component {
 
   handleOnChange = event => {
     const { name, value } = event.target;
+    // The Object.assign() method is used to copy the values of all enumerable
+    // own properties from one or more source objects to a target object.
+    // It will return the target object.
     const currentMadlibFormData = Object.assign({}, this.props.madlibFormData, {
       [name]: value
     })
@@ -67,13 +70,17 @@ class MadlibForm extends Component {
   }
 }
 
+// in mapStateToProps() we specify exactly which slice of the state
+// we want to provide to our component.
 const mapStateToProps = state => {
   return {
     madlibFormData: state.madlibFormData
   }
 }
 
+// Use connect to give component ability to get data from the store's internal state
+// and re-render and get new data when that state changes
 export default connect(mapStateToProps, {
-  updateMadlibFormData,
-  createMadlib
+  updateMadlibFormData, //equivalent to mapDispatchToProps, except return statement is in actions.
+  createMadlib //equivalent to mapDispatchToProps, except return statement is in actions.
 })(MadlibForm);
