@@ -1,5 +1,5 @@
 class Api::MadlibsController < ApplicationController
-  before_action :set_madlib, only: [:show, :update, :destroy]
+  # before_action :set_madlib, only: [:show, :update, :destroy]
 
   def index
     render json: Madlib.all
@@ -36,9 +36,9 @@ class Api::MadlibsController < ApplicationController
 
   private
 
-    def set_madlib
-      @madlib = Madlib.find_by_id(params[:id])
-    end
+    # def set_madlib
+    #   @madlib = Madlib.find_by_id(params[:id])
+    # end
 
     def madlib_params
       params.require(:madlib).permit(:noun, :verb, :adj)

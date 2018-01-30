@@ -6,7 +6,6 @@ import Home from '../components/Home';
 import MadlibForm from './MadlibForm';
 import AllMadlibs from './AllMadlibs';
 import Video from '../components/Video';
-// import { getMadlibs } from '../actions/madlibs';
 
 class App extends Component {
   render() {
