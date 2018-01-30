@@ -14,9 +14,9 @@ class Api::MadlibsController < ApplicationController
     end
   end
 
-  def show
-    render json: @madlib
-  end
+  # def show
+  #   render json: @madlib
+  # end
 
   # def update
   #   if @madlib.update(madlib_params)
