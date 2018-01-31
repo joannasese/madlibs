@@ -14,7 +14,6 @@ class All extends Component {
   render() {
     return (
       <div>
-
         A bunch of random thoughts:
           {this.props.madlibs.map((madlib, index, array) => {
             if (madlib.noun && madlib.adj && madlib.verb){
@@ -32,7 +31,14 @@ class All extends Component {
 // in mapStateToProps() we specify exactly which slice of the state
 // we want to provide to our component.
 const mapStateToProps = (state) => {
-  return ({madlibs: state.madlibs})
+  const noT = state.madlibs.filter(madlib => {
+   return !madlib.noun.match(/(\bt\S+\b)/ig) &&
+   !madlib.adj.match(/(\bt\S+\b)/ig) &&
+   !madlib.verb.match(/(\bt\S+\b)/ig)
+  })
+  return {
+    madlibs: noT
+  }
 }
 
 // Use connect to give component ability to get data from the store's internal state
