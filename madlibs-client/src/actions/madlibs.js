@@ -32,6 +32,7 @@ export const getMadlibs = () => {
   })
   return dispatch => {
     return fetch(`${API_URL}/madlibs`, {
+      method: 'GET',
       headers: headers,
     })
       .then(response => response.json())

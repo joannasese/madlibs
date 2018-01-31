@@ -1,4 +1,5 @@
 //reducers
+//Reducer would take information from action to change the state.
 
 export default (state = [], action) => {
   switch(action.type) {
