@@ -14,7 +14,7 @@ class All extends Component {
   render() {
     return (
       <div>
-        A bunch of random thoughts:
+        <p>A bunch of random thoughts:</p>
           {this.props.madlibs.map((madlib, index, array) => {
             if (madlib.noun && madlib.adj && madlib.verb){
               return <div key={madlib.id} className="sentence" >
@@ -23,6 +23,7 @@ class All extends Component {
             }
           })}
       </div>
+
 
     )
   }
@@ -34,7 +35,7 @@ const mapStateToProps = (state) => {
   const noT = state.madlibs.filter(madlib => {
    return !madlib.noun.match(/(\bt\S+\b)/ig) &&
    !madlib.adj.match(/(\bt\S+\b)/ig) &&
-   !madlib.verb.match(/(\bt\S+\b)/ig)
+   !madlib.verb.match(/(\bt\S+\b)/ig) 
   })
   return {
     madlibs: noT
