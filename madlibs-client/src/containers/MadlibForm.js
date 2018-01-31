@@ -4,15 +4,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { updateMadlibFormData } from '../actions/madlibForm';
-import { createMadlib, getMadlibs } from '../actions/madlibs';
-
+import { createMadlib } from '../actions/madlibs';
 import Madlibs from './Madlibs';
 
 class MadlibForm extends Component {
-
-  componentDidMount() {
-    this.props.getMadlibs()
-  }
 
   handleOnChange = event => {
     const { name, value } = event.target;
@@ -31,7 +26,7 @@ class MadlibForm extends Component {
   }
 
   render() {
-    debugger
+    // debugger
     const { noun, adj, verb } = this.props.madlibFormData;
     return (
       <div>
@@ -90,6 +85,5 @@ const mapStateToProps = state => {
 // and re-render and get new data when that state changes
 export default connect(mapStateToProps, {
   updateMadlibFormData, //equivalent to mapDispatchToProps, except return statement is in actions.
-  createMadlib, //equivalent to mapDispatchToProps, except return statement is in actions.
-  getMadlibs
+  createMadlib //equivalent to mapDispatchToProps, except return statement is in actions.
 })(MadlibForm);
