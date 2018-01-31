@@ -10,7 +10,7 @@ const All = ({madlibs}) =>
   <p>A bunch of random thoughts:</p>
     {madlibs.map((madlib, index, array) => {
       if (madlib.noun && madlib.adj && madlib.verb){
-        return <div className="sentence">
+        return <div key={madlib.id} className="sentence" >
           <MadlibSentence key={madlib.id} madlib={madlib} />
         </div>
       }
