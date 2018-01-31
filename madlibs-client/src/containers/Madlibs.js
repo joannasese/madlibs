@@ -1,29 +1,34 @@
 //containers
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect} from 'react-redux';
 import './Madlibs.css';
 import { getMadlibs } from '../actions/madlibs';
 import MadlibSentence from '../components/MadlibSentence';
 
-const Madlibs = (props) => {
-  return (
-    <div>
-      {props.madlibs.map((madlib, index, array) => {
-        if (array.length-1 === index) {
-          if (madlib.noun && madlib.adj && madlib.verb){
-            return <div key={madlib.id} className="sentence" >
-              <MadlibSentence key={madlib.id} madlib={madlib} />
-            </div>
-          } else {
-            return "Hey, you forgot something!"
-          }
-        }
-      })}
-    </div>
-  )
+class Madlibs extends Component {
 
+  compondentDidMount() {
+    this.props.getMadlibs()
   }
+  render() {
+    return (
+      <div>
+        {this.props.madlibs.map((madlib, index, array) => {
+          if (array.length-1 === index) {
+            if (madlib.noun && madlib.adj && madlib.verb){
+              return <div key={madlib.id} className="sentence" >
+                <MadlibSentence key={madlib.id} madlib={madlib} />
+              </div>
+            } else {
+              return "Hey, you forgot something!"
+            }
+          }
+        })}
+      </div>
+    )
+  }
+}
 
 // in mapStateToProps() we specify exactly which slice of the state
 // we want to provide to our component.

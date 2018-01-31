@@ -9,6 +9,14 @@ import Madlibs from './Madlibs';
 
 class MadlibForm extends Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      showMadlib: false
+    }
+  }
+
   handleOnChange = event => {
     const { name, value } = event.target;
     // The Object.assign() method is used to copy the values of all enumerable
@@ -23,6 +31,7 @@ class MadlibForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createMadlib(this.props.madlibFormData)
+    this.setState({showMadlib: !this.state.showMadlib})
   }
 
   render() {
@@ -65,7 +74,7 @@ class MadlibForm extends Component {
           </div>
           <button type="submit" className="button">Submit</button>
         </form>
-        <Madlibs />
+        {this.state.showMadlib && <Madlibs />}
       </div>
     )
   }
