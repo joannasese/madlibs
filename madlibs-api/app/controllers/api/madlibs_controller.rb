@@ -41,6 +41,6 @@ class Api::MadlibsController < ApplicationController
     # end
 
     def madlib_params
-      params.require(:madlib).permit(:noun, :verb, :adj)
+      params.require(:madlib).permit(:noun, :verb, :adj, :counter)
     end
 end
