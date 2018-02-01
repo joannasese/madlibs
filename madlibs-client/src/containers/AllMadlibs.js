@@ -23,8 +23,6 @@ class All extends Component {
             }
           })}
       </div>
-
-
     )
   }
 }
@@ -33,9 +31,9 @@ class All extends Component {
 // we want to provide to our component.
 const mapStateToProps = (state) => {
   const noT = state.madlibs.filter(madlib => {
-   return !madlib.noun.match(/(\bt\S+\b)/ig) &&
-   !madlib.adj.match(/(\bt\S+\b)/ig) &&
-   !madlib.verb.match(/(\bt\S+\b)/ig)
+   return !(madlib.noun[0] === 't') &&
+   !(madlib.adj[0] === 't') &&
+   !(madlib.verb[0] === 't')
   })
   return {
     madlibs: noT
