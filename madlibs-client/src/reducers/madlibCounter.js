@@ -12,7 +12,8 @@ export default (state = initialState, action) => {
     case 'ADD_TO_COUNTER':
       // return { counter: state.counter + 1 };
       console.log(state.counter)
-      return Object.assign({}, state, {counter: state.counter + 5});
+      return {...state, counter: action.payload}
+      // return Object.assign({}, state, {counter: state.counter + 1});
     default:
       return state;
   }

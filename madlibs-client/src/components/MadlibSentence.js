@@ -6,18 +6,18 @@ import { getMadlibs } from '../actions/madlibs';
 import { madlibCounter } from '../actions/madlibCounter';
 
 class MadlibSentence extends Component {
-  constructor(props){
-    super(props)
-
-    this.state = {
-      counter: this.props.madlib.counter
-    }
-  }
+  // constructor(props){
+  //   super(props)
+  //
+  //   this.state = {
+  //     counter: this.props.madlib.counter
+  //   }
+  // }
 
   handleOnClick = (event) => {
     event.preventDefault()
-    this.setState({counter: ++this.state.counter })
-    this.props.madlibCounter(this.state.counter, this.props.madlib.id)
+    this.props.getMadlibs()
+    this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
   }
 
   render(){
@@ -35,7 +35,7 @@ class MadlibSentence extends Component {
     return (
       <div>
         {phrase}
-        <button onClick={this.handleOnClick}>&hearts; props counter: {this.props.madlib.counter} | state counter: {this.state.counter}</button>
+        <button onClick={this.handleOnClick}>&hearts; props counter: {this.props.madlib.counter} </button>
 
       </div>
     )

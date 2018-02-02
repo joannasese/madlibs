@@ -11,7 +11,7 @@ export const madlibCounter = (counter, id) => {
   console.log(counter)
   return dispatch => {
     return fetch(`${API_URL}/madlibs/${id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
