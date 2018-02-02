@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
-import { getMadlibs } from '../actions/madlibs';
+import { getMadlibs } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
 
 class All extends Component {

@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
 import './Madlibs.css';
-import { getMadlibs } from '../actions/madlibs';
+import { getMadlibs } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
 
 class Madlibs extends Component {

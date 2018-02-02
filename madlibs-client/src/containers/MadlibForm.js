@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { updateMadlibFormData } from '../actions/madlibForm';
-import { createMadlib } from '../actions/madlibs';
+import { createMadlib } from '../actions/madlibsAction';
 import Madlibs from './Madlibs';
 
 class MadlibForm extends Component {

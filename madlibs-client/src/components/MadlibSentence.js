@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getMadlibs } from '../actions/madlibs';
+import { getMadlibs } from '../actions/madlibsAction';
 import { madlibCounter } from '../actions/madlibCounter';
 
 class MadlibSentence extends Component {
@@ -16,8 +16,10 @@ class MadlibSentence extends Component {
 
   handleOnClick = (event) => {
     event.preventDefault()
-    this.props.getMadlibs()
+    // this.setState({counter: ++this.state.counter })
+    this.props.getMadlibs() // why do i need to call this if it's called in the parent?
     this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
+    this.props.getMadlibs()
   }
 
   render(){
@@ -35,7 +37,7 @@ class MadlibSentence extends Component {
     return (
       <div>
         {phrase}
-        <button onClick={this.handleOnClick}>&hearts; props counter: {this.props.madlib.counter} </button>
+        <button onClick={this.handleOnClick}>&hearts; {this.props.madlib.counter} </button>
 
       </div>
     )
