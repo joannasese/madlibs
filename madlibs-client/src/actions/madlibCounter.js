@@ -7,14 +7,15 @@ const addToCounter = counter => {
   }
 }
 
-export const madlibCounter = counter => {
+export const madlibCounter = (counter, id) => {
+  console.log(counter)
   return dispatch => {
-    return fetch(`${API_URL}/madlibs`, {
-      method: 'POST',
+    return fetch(`${API_URL}/madlibs/${id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ counter: counter })
+      // body: JSON.stringify({counter: counter})
     })
       .then(response => response.json())
       .then(counter => {

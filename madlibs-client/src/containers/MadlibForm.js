@@ -9,13 +9,13 @@ import Madlibs from './Madlibs';
 
 class MadlibForm extends Component {
 
-  constructor() {
-    super();
-
-    this.state = {
-      showMadlib: false
-    }
-  }
+  // constructor() {
+  //   super();
+  //
+  //   this.state = {
+  //     showMadlib: false
+  //   }
+  // }
 
   handleOnChange = event => {
     const { name, value } = event.target;
@@ -31,8 +31,7 @@ class MadlibForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createMadlib(this.props.madlibFormData)
-    this.setState({showMadlib: !this.state.showMadlib})
-    console.log(this.props.madlibFormData)
+    // this.setState({showMadlib: !this.state.showMadlib})
   }
 
   render() {
@@ -75,7 +74,8 @@ class MadlibForm extends Component {
           </div>
           <button type="submit" className="button">Submit</button>
         </form>
-        {this.state.showMadlib && <Madlibs />}
+        // if we want to toggle this.state.showMadlib && Madlibs /
+        <Madlibs />
       </div>
     )
   }

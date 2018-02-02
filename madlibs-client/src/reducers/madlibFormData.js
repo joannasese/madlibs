@@ -4,7 +4,8 @@
 const initialState = {
   noun: '',
   adj: '',
-  verb: ''
+  verb: '',
+  counter: 0
 }
 
 export default (state = initialState, action) => {

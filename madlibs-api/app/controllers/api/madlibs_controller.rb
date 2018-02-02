@@ -1,5 +1,5 @@
 class Api::MadlibsController < ApplicationController
-  # before_action :set_madlib, only: [:show, :update, :destroy]
+  before_action :set_madlib, only: [:show, :update, :destroy]
 
   def index
     render json: Madlib.all
@@ -14,17 +14,17 @@ class Api::MadlibsController < ApplicationController
     end
   end
 
-  # def show
-  #   render json: @madlib
-  # end
+  def show
+    render json: @madlib
+  end
 
-  # def update
-  #   if @madlib.update(madlib_params)
-  #     render json: @madlib
-  #   else
-  #     render json: { message: @madlib.errors }, status: 400
-  #   end
-  # end
+  def update
+    if @madlib.update(madlib_params)
+      render json: @madlib
+    else
+      render json: { message: @madlib.errors }, status: 400
+    end
+  end
 
   # def destroy
   #   if @madlib.destroy
@@ -36,11 +36,11 @@ class Api::MadlibsController < ApplicationController
 
   private
 
-    # def set_madlib
-    #   @madlib = Madlib.find_by_id(params[:id])
-    # end
+    def set_madlib
+      @madlib = Madlib.find_by_id(params[:id])
+    end
 
     def madlib_params
-      params.require(:madlib).permit(:noun, :verb, :adj, :counter)
+      params.fetch(:madlib).permit(:noun, :verb, :adj, :counter)
     end
 end

@@ -2,25 +2,22 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getMadlibs } from '../actions/madlibs';
 import { madlibCounter } from '../actions/madlibCounter';
 
 class MadlibSentence extends Component {
-  // constructor(){
-  //   super()
-  //
-  //   this.state = {
-  //     counter: 0
-  //   }
-  // }
+  constructor(props){
+    super(props)
 
-  componentDidmount() {
-    this.props.counter()
+    this.state = {
+      counter: this.props.madlib.counter
+    }
   }
 
-  handleOnClick = event => {
-    // this.setState({counter: ++this.state.counter })
-    this.props.madlibCounter(this.props.counter)
-    console.log(this.props.madlib.counter)
+  handleOnClick = (event) => {
+    event.preventDefault()
+    this.setState({counter: ++this.state.counter })
+    this.props.madlibCounter(this.state.counter, this.props.madlib.id)
   }
 
   render(){
@@ -35,21 +32,21 @@ class MadlibSentence extends Component {
       ]
 
       const phrase = phrases[Math.floor(Math.random()*phrases.length)];
-
     return (
+      <div>
+        {phrase}
+        <button onClick={this.handleOnClick}>&hearts; props counter: {this.props.madlib.counter} | state counter: {this.state.counter}</button>
 
-        <div>
-          {phrase}
-          <button onClick={this.handleOnClick}>&hearts; {madlib.counter}</button>
-        </div>
+      </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return {
-    counter: state.counter
-  }
+  return ({counter: state.counter})
 }
 
-export default connect(mapStateToProps, {madlibCounter})(MadlibSentence);
+export default connect(mapStateToProps, {
+  madlibCounter,
+  getMadlibs
+})(MadlibSentence);
