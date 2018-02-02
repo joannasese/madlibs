@@ -32,6 +32,7 @@ class MadlibForm extends Component {
     event.preventDefault()
     this.props.createMadlib(this.props.madlibFormData)
     this.setState({showMadlib: !this.state.showMadlib})
+    console.log(this.props.madlibFormData)
   }
 
   render() {
