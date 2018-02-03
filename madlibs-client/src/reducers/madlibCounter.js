@@ -10,10 +10,9 @@ const initialState = {
 export default (state = initialState, action) => {
   switch(action.type) {
     case 'ADD_TO_COUNTER':
-      // return { counter: state.counter + 1 };
-      console.log(state.counter)
+      // return Object.assign({}, state, {counter: state.counter + 1}); // this doesn't work
       return {...state, counter: action.payload}
-      // return Object.assign({}, state, {counter: state.counter + 1});
+      // return Object.assign({}, state, {counter: action.payload}); //just another way of writing with object spread
     default:
       return state;
   }

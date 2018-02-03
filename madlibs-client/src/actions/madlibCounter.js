@@ -8,10 +8,9 @@ const addToCounter = counter => {
 }
 
 export const madlibCounter = (counter, id) => {
-  console.log(counter)
   return dispatch => {
     return fetch(`${API_URL}/madlibs/${id}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
