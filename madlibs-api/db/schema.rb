@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201201926) do
+ActiveRecord::Schema.define(version: 20180203052532) do
 
   create_table "madlibs", force: :cascade do |t|
     t.string "noun"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180201201926) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "counter"
+    t.string "sentence"
   end
 
 end

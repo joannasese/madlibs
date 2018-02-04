@@ -5,7 +5,8 @@ const initialState = {
   noun: '',
   adj: '',
   verb: '',
-  counter: 0
+  counter: 0,
+  sentence: ''
 }
 
 export default (state = initialState, action) => {

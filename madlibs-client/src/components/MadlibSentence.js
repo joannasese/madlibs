@@ -25,6 +25,7 @@ class MadlibSentence extends Component {
 
   render(){
     const {madlib} = this.props
+    console.log(madlib.sentence)
     let phrases =
       [
         <div key={madlib.id}>The <strong>{madlib.adj} {madlib.noun}</strong> enjoys when I <strong>{madlib.verb}</strong>.</div>,
@@ -34,11 +35,16 @@ class MadlibSentence extends Component {
         <div key={madlib.id}>The <strong>{madlib.adj} {madlib.noun}</strong> always wanted to learn how to <strong>{madlib.verb}</strong>.</div>
       ]
 
-      const phrase = phrases[Math.floor(Math.random()*phrases.length)];
+      const phrase = phrases[Math.floor(Math.random()*phrases.length)]
+      // const sentence = Object.assign({}, this.props.madlib.sentence, {
+      //   phrase
+      // })
+
+// somehow assign phrase a value and pass value into createMadlib function??
     return (
       <div>
         {phrase}
-        <button onClick={this.handleOnClick}>&hearts; {this.props.madlib.counter} </button>
+        <button onClick={this.handleOnClick}>&hearts; {madlib.counter} </button>
 
       </div>
     )
@@ -46,7 +52,10 @@ class MadlibSentence extends Component {
 }
 
 const mapStateToProps = state => {
-  return ({counter: state.counter})
+  return ({
+    counter: state.counter,
+    sentence: state.sentence
+  })
 }
 
 export default connect(mapStateToProps, {
