@@ -74,7 +74,7 @@ class MadlibForm extends Component {
           </div>
           <button type="submit" className="button">Submit</button>
         </form>
-        // if we want to toggle this.state.showMadlib && Madlibs /
+        // if we want to toggle this.state.showMadlib && Madlibs //
         <Madlibs />
       </div>
     )

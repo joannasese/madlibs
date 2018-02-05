@@ -7,13 +7,13 @@ import { madlibCounter } from '../actions/madlibCounter';
 
 class MadlibSentence extends Component {
   // for counter separate from redux
-  // constructor(props){
-  //   super(props)
-  //
-  //   this.state = {
-  //     counter: this.props.madlib.counter
-  //   }
-  // }
+  constructor(props){
+    super(props)
+
+    this.state = {
+      phrase: ''
+    }
+  }
 
   handleOnClick = (event) => {
     event.preventDefault()
@@ -23,9 +23,8 @@ class MadlibSentence extends Component {
     this.props.getMadlibs()
   }
 
-  render(){
+  componentWillMount() {
     const {madlib} = this.props
-    console.log(madlib.sentence)
     let phrases =
       [
         <div key={madlib.id}>The <strong>{madlib.adj} {madlib.noun}</strong> enjoys when I <strong>{madlib.verb}</strong>.</div>,
@@ -35,7 +34,14 @@ class MadlibSentence extends Component {
         <div key={madlib.id}>The <strong>{madlib.adj} {madlib.noun}</strong> always wanted to learn how to <strong>{madlib.verb}</strong>.</div>
       ]
 
-      const phrase = phrases[Math.floor(Math.random()*phrases.length)]
+      this.setState({phrase: phrases[Math.floor(Math.random()*phrases.length)] })
+  }
+
+  render(){
+    const {madlib} = this.props
+    console.log(madlib.sentence)
+
+      // const phrase = phrases[Math.floor(Math.random()*phrases.length)]
       // const sentence = Object.assign({}, this.props.madlib.sentence, {
       //   phrase
       // })
@@ -43,7 +49,7 @@ class MadlibSentence extends Component {
 // somehow assign phrase a value and pass value into createMadlib function??
     return (
       <div>
-        {phrase}
+        {this.state.phrase}
         <button onClick={this.handleOnClick}>&hearts; {madlib.counter} </button>
 
       </div>
