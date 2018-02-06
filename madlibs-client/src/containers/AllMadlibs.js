@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
+import './Madlibs.css';
 import { getMadlibs } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
 
@@ -30,7 +31,7 @@ class All extends Component {
 // in mapStateToProps() we specify exactly which slice of the state
 // we want to provide to our component.
 const mapStateToProps = (state) => {
-  const noT = state.madlibs.filter(madlib => {
+  const noT = state.madlibs.slice(state.madlibs.length-5, state.madlibs.length).filter(madlib => {
    return !(madlib.noun[0] === 't') &&
    !(madlib.adj[0] === 't') &&
    !(madlib.verb[0] === 't')
