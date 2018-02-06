@@ -2,10 +2,11 @@
 
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
+import './Madlibs.css';
 import { getMadlibs } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
 
-class All extends Component {
+class AllMadlibs extends Component {
 
   componentDidMount() {
     this.props.getMadlibs()
@@ -30,7 +31,7 @@ class All extends Component {
 // in mapStateToProps() we specify exactly which slice of the state
 // we want to provide to our component.
 const mapStateToProps = (state) => {
-  const noT = state.madlibs.filter(madlib => {
+  const noT = state.madlibs.slice(0, 20).filter(madlib => {
    return !(madlib.noun[0] === 't') &&
    !(madlib.adj[0] === 't') &&
    !(madlib.verb[0] === 't')
@@ -44,4 +45,4 @@ const mapStateToProps = (state) => {
 // and re-render and get new data when that state changes
 export default connect(mapStateToProps, {
   getMadlibs //equivalent to mapDispatchToProps, except return statement is in actions.
-})(All);
+})(AllMadlibs);

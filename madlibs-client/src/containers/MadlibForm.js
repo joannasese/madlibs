@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import './App.css';
 import { updateMadlibFormData } from '../actions/madlibForm';
 import { createMadlib } from '../actions/madlibsAction';
-import Madlibs from './Madlibs';
+import { getMadlibs } from '../actions/madlibsAction';
+import MadlibSentence from '../components/MadlibSentence';
 
 class MadlibForm extends Component {
+  constructor(props){
+    super(props)
 
-  // constructor() {
-  //   super();
-  //
-  //   this.state = {
-  //     showMadlib: false
-  //   }
-  // }
+    this.state = {
+      sentence: ''
+    }
+  }
 
   handleOnChange = event => {
     const { name, value } = event.target;
@@ -31,12 +31,28 @@ class MadlibForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createMadlib(this.props.madlibFormData)
-    // this.setState({showMadlib: !this.state.showMadlib})
+  }
+
+  compondentDidMount() {
+    this.props.getMadlibs()
+  }
+
+  componentWillMount() {
+    const { noun, adj, verb } = this.props.madlibFormData;
+    let phrases =
+      [
+        <div>The <strong>{adj} {noun}</strong> enjoys when I <strong>{verb}</strong>.</div>,
+        <div>Everyone would <strong>{verb}</strong> a <strong>{adj} {noun}</strong>.</div>
+      ]
+
+    const sentence = phrases[Math.floor(Math.random()*phrases.length)]
+    this.setState({ sentence });
   }
 
   render() {
     // debugger
-    const { noun, adj, verb } = this.props.madlibFormData;
+    const { noun, adj, verb, sentence } = this.props.madlibFormData;
+
     return (
       <div>
       <h3>Madlib Form</h3>
@@ -72,10 +88,34 @@ class MadlibForm extends Component {
               placeholder="Ex: defenestrate"
             />
           </div>
+
+          <div>
+            <input
+              type="input"
+              onChange={this.handleOnChange}
+              name="sentence"
+              value={sentence}
+              placeholder={this.state.sentence}
+            />
+          </div>
+
           <button type="submit" className="button">Submit</button>
         </form>
-        // if we want to toggle this.state.showMadlib && Madlibs //
-        <Madlibs />
+
+        <div>
+          {this.props.madlibs.map((madlib, index, array) => {
+            if (array.length-1 === index) {
+              if (madlib.noun && madlib.adj && madlib.verb){
+                return <div key={madlib.id} className="sentence" >
+                  <MadlibSentence key={madlib.id} madlib={madlib} />
+                </div>
+              } else {
+                return "Hey, you forgot something!"
+              }
+            }
+          })}
+        </div>
+
       </div>
     )
   }
@@ -84,10 +124,9 @@ class MadlibForm extends Component {
 // in mapStateToProps() we specify exactly which slice of the state
 // we want to provide to our component.
 const mapStateToProps = state => {
-  const filtered = state.madlibs.slice(0, 20)
   return {
     madlibFormData: state.madlibFormData,
-    madlibs: filtered
+    madlibs: state.madlibs
   }
 }
 
@@ -95,5 +134,6 @@ const mapStateToProps = state => {
 // and re-render and get new data when that state changes
 export default connect(mapStateToProps, {
   updateMadlibFormData, //equivalent to mapDispatchToProps, except return statement is in actions.
-  createMadlib //equivalent to mapDispatchToProps, except return statement is in actions.
+  createMadlib, //equivalent to mapDispatchToProps, except return statement is in actions.
+  getMadlibs
 })(MadlibForm);

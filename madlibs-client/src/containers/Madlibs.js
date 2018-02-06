@@ -1,4 +1,5 @@
 //containers
+// NO LONGER NEEDED - MOVED LOGIC TO MADLIBFORM.JS
 
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
