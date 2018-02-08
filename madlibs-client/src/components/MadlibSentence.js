@@ -35,12 +35,18 @@ class MadlibSentence extends Component {
       ]
 
       this.setState({phrase: phrases[Math.floor(Math.random()*phrases.length)] })
+
+      // * perhaps here is where i should call an action that will *edit* the sentence in an existing record
+
+      // const phrase = phrases[Math.floor(Math.random()*phrases.length)]
+      // const sentence = Object.assign({}, this.props.madlib.sentence, {
+      //   phrase
+      // })
+      // console.log(sentence)
   }
 
   render(){
     const {madlib} = this.props
-    console.log(madlib.sentence)
-
       // const phrase = phrases[Math.floor(Math.random()*phrases.length)]
       // const sentence = Object.assign({}, this.props.madlib.sentence, {
       //   phrase
