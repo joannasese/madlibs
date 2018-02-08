@@ -18,7 +18,7 @@ class MadlibSentence extends Component {
   handleOnClick = (event) => {
     event.preventDefault()
     // this.setState({counter: ++this.state.counter }) // for counter separate from redux
-    this.props.getMadlibs() // why do i need to call this if it's called in the parent?
+    //this.props.getMadlibs() // why do i need to call this if it's called in the parent?
     this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
     this.props.getMadlibs()
   }

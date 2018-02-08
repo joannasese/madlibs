@@ -1,35 +1,28 @@
-//containers
-
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
 import './Madlibs.css';
 import { getMadlibs } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
 
-class All extends Component {
+class Madlibs extends Component {
 
-  componentDidMount() {
+  compondentDidMount() {
     this.props.getMadlibs()
   }
-
   render() {
-
-
     return (
       <div>
-        <p>A bunch of random thoughts:</p>
-
-          {this.props.madlibs.sort(function(a, b) {
-            return a.counter - b.counter
-          })
-            .slice(this.props.madlibs.length-10)
-            .reverse().map((madlib, index, array) => {
+        {this.props.madlibs.map((madlib, index, array) => {
+          if (array.length-1 === index) {
             if (madlib.noun && madlib.adj && madlib.verb){
               return <div key={madlib.id} className="sentence" >
                 <MadlibSentence key={madlib.id} madlib={madlib} />
               </div>
+            } else {
+              return "Hey, you forgot something!"
             }
-          })}
+          }
+        })}
       </div>
     )
   }
@@ -38,18 +31,11 @@ class All extends Component {
 // in mapStateToProps() we specify exactly which slice of the state
 // we want to provide to our component.
 const mapStateToProps = (state) => {
-  const noT = state.madlibs.filter(madlib => {
-   return (madlib.noun[0] !== 't') &&
-   (madlib.adj[0] !== 't') &&
-   (madlib.verb[0] !== 't')
-  })
-  return {
-    madlibs: noT
-  }
+  return ({madlibs: state.madlibs})
 }
 
 // Use connect to give component ability to get data from the store's internal state
 // and re-render and get new data when that state changes
 export default connect(mapStateToProps, {
   getMadlibs //equivalent to mapDispatchToProps, except return statement is in actions.
-})(All);
+})(Madlibs);

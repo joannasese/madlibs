@@ -15,8 +15,8 @@ export default (state = initialState, action) => {
       return action.madlibFormData;
     case 'RESET_MADLIB_FORM':
       return initialState;
-    case 'ADD_TO_COUNTER':
-      return {...state, counter: action.payload}
+  //  case 'ADD_TO_COUNTER':
+      //return {...state, counter: action.payload}
     default:
       return state;
   }
