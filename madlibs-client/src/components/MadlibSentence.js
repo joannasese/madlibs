@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Counter from '../components/Counter';
 import { getMadlibs } from '../actions/madlibsAction';
 import { madlibCounter } from '../actions/madlibCounter';
 
@@ -14,12 +15,12 @@ class MadlibSentence extends Component {
     }
   }
 
-  handleOnClick = (event) => {
-    event.preventDefault()
-    this.props.getMadlibs() // why do i need to call this if it's called in the parent?
-    this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
-    this.props.getMadlibs()
-  }
+  // handleOnClick = (event) => {
+    // event.preventDefault()
+    // this.props.getMadlibs() // why do i need to call this if it's called in the parent?
+    // this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
+    // this.props.getMadlibs()
+  // }
 
   componentWillMount() {
     const {madlib} = this.props
@@ -36,7 +37,7 @@ class MadlibSentence extends Component {
   }
 
   render(){
-    const {madlib} = this.props
+    const {counter} = this.props.madlib
 
     // let phrases =
     //   [
@@ -50,12 +51,10 @@ class MadlibSentence extends Component {
     //
     //   console.log(madlib.sentence)
 
-// somehow assign phrase a value and pass value into createMadlib function??
     return (
       <div>
         {this.state.phrase}
-        {madlib.sentence}
-        <button onClick={this.handleOnClick}>&hearts; {madlib.counter} </button>
+        <Counter counter={counter} />
 
       </div>
     )
@@ -65,7 +64,7 @@ class MadlibSentence extends Component {
 const mapStateToProps = state => {
   return ({
     counter: state.counter,
-    sentence: state.sentence
+    id: state.id
   })
 }
 

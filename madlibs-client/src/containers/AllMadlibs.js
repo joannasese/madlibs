@@ -16,7 +16,7 @@ class AllMadlibs extends Component {
     return (
       <div>
         <p>A bunch of random thoughts:</p>
-          {this.props.madlibs.slice(0).reverse().map((madlib, index, array) => {
+          {this.props.madlibs.reverse().map((madlib, index, array) => {
             if (madlib.noun && madlib.adj && madlib.verb){
               return <div key={madlib.id} className="sentence" >
                 <MadlibSentence key={madlib.id} madlib={madlib} />
@@ -31,7 +31,7 @@ class AllMadlibs extends Component {
 // in mapStateToProps() we specify exactly which slice of the state
 // we want to provide to our component.
 const mapStateToProps = (state) => {
-  const noT = state.madlibs.slice(0, 20).filter(madlib => {
+  const noT = state.madlibs.filter(madlib => {
    return !(madlib.noun[0] === 't') &&
    !(madlib.adj[0] === 't') &&
    !(madlib.verb[0] === 't')

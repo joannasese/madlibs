@@ -9,7 +9,7 @@ import MadlibSentence from '../components/MadlibSentence';
 
 class Madlibs extends Component {
 
-  compondentDidMount() {
+  componentDidMount() {
     this.props.getMadlibs()
   }
   render() {

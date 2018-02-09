@@ -9,19 +9,9 @@ import { getMadlibs } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
 
 class MadlibForm extends Component {
-  constructor(props){
-    super(props)
-
-    this.state = {
-      sentence: ''
-    }
-  }
 
   handleOnChange = event => {
     const { name, value } = event.target;
-    // The Object.assign() method is used to copy the values of all enumerable
-    // own properties from one or more source objects to a target object.
-    // It will return the target object.
     const currentMadlibFormData = Object.assign({}, this.props.madlibFormData, {
       [name]: value
     })
@@ -37,20 +27,7 @@ class MadlibForm extends Component {
     this.props.getMadlibs()
   }
 
-  componentWillMount() {
-    const { noun, adj, verb } = this.props.madlibFormData;
-    let phrases =
-      [
-        <div>The <strong>{adj} {noun}</strong> enjoys when I <strong>{verb}</strong>.</div>,
-        <div>Everyone would <strong>{verb}</strong> a <strong>{adj} {noun}</strong>.</div>
-      ]
-
-    const sentence = phrases[Math.floor(Math.random()*phrases.length)]
-    this.setState({ sentence });
-  }
-
   render() {
-    // debugger
     const { noun, adj, verb, sentence } = this.props.madlibFormData;
 
     return (
@@ -88,17 +65,6 @@ class MadlibForm extends Component {
               placeholder="Ex: defenestrate"
             />
           </div>
-
-          <div>
-            <input
-              type="input"
-              onChange={this.handleOnChange}
-              name="sentence"
-              value={sentence}
-              placeholder={this.state.sentence}
-            />
-          </div>
-
           <button type="submit" className="button">Submit</button>
         </form>
 
@@ -115,7 +81,6 @@ class MadlibForm extends Component {
             }
           })}
         </div>
-
       </div>
     )
   }

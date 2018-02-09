@@ -16,7 +16,8 @@ export default (state = initialState, action) => {
     case 'RESET_MADLIB_FORM':
       return initialState;
     case 'ADD_TO_COUNTER':
-      return {...state, counter: action.payload}
+      return state.counter + 1
+      // return {...state, counter: action.payload}
     default:
       return state;
   }
