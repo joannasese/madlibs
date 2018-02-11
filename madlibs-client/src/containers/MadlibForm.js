@@ -28,7 +28,7 @@ class MadlibForm extends Component {
   }
 
   render() {
-    const { noun, adj, verb, sentence } = this.props.madlibFormData;
+    const { noun, adj, verb } = this.props.madlibFormData;
 
     return (
       <div>

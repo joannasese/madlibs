@@ -1,24 +1,27 @@
 const API_URL = process.env.REACT_APP_API_URL
 
 const addToCounter = counter => {
+  console.log(counter)
   return {
     type: 'ADD_TO_COUNTER',
-    counter
+    payload: counter
   }
 }
 
-export const madlibCounter = (counter, id) => {
+
+
+export const madlibCounter = (counterInfo) => {
   return dispatch => {
-    return fetch(`${API_URL}/madlibs/${id}`, {
-      method: 'PUT',
+    return fetch(`${API_URL}/madlibs/${counterInfo.id}`, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      // body: JSON.stringify({counter: counter})
+      body: JSON.stringify({counter: counterInfo.counter})
     })
       .then(response => response.json())
       .then(counter => {
-        dispatch(addToCounter(counter))
+        dispatch(addToCounter(counterInfo.counter))
       })
     }
 }

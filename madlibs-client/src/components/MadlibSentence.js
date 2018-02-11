@@ -15,12 +15,19 @@ class MadlibSentence extends Component {
     }
   }
 
-  // handleOnClick = (event) => {
-    // event.preventDefault()
-    // this.props.getMadlibs() // why do i need to call this if it's called in the parent?
+  handleOnClick = (event) => {
+    event.preventDefault()
+
+
+    const counterInfo = {
+      counter: ++this.props.madlib.counter,
+      id: this.props.madlib.id
+    }
+
+    this.props.madlibCounter(counterInfo)
+console.log("madlib sentence:" + this.props.madlib.counter)
     // this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
-    // this.props.getMadlibs()
-  // }
+  }
 
   componentWillMount() {
     const {madlib} = this.props
@@ -38,6 +45,7 @@ class MadlibSentence extends Component {
 
   render(){
     const {counter} = this.props.madlib
+    const {id} = this.props.madlib
 
     // let phrases =
     //   [
@@ -54,8 +62,7 @@ class MadlibSentence extends Component {
     return (
       <div>
         {this.state.phrase}
-        <Counter counter={counter} />
-
+        <Counter counter={counter} id={id} handleOnClick={this.handleOnClick} />
       </div>
     )
   }
@@ -69,6 +76,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  madlibCounter,
-  getMadlibs
+  getMadlibs,
+  madlibCounter
 })(MadlibSentence);
