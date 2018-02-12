@@ -26,6 +26,7 @@ class MadlibSentence extends Component {
     // this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
   }
 
+
   componentWillMount() {
     const {madlib} = this.props
     let phrases =
@@ -65,15 +66,14 @@ class MadlibSentence extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return ({
-    // counter: state.madlibs[state.madlibs.length-1].counter,
+  return {
     counter: state.madlibCounter.counter,
     id: state.madlibs.map(madlib => {
       if (madlib.counter === state.madlibCounter.counter){
         return madlib.id
       }
     })
-  })
+  }
 }
 
 export default connect(mapStateToProps, {
