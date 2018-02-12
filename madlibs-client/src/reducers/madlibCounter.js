@@ -9,6 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch(action.type) {
     case 'ADD_TO_COUNTER':
+    console.log(action.payload)
         return {...state,
           counter: action.payload.counter
         }

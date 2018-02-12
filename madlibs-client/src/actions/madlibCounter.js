@@ -3,6 +3,7 @@
 const API_URL = process.env.REACT_APP_API_URL
 
 const addToCounter = data => {
+  console.log(data)
   return {
     type: 'ADD_TO_COUNTER',
     payload: data
@@ -12,7 +13,7 @@ const addToCounter = data => {
 
 
 export const madlibCounter = (counterInfo) => {
-  console.log("action counter:" + counterInfo.counter)
+  console.log(counterInfo.counter)
   return dispatch => {
     return fetch(`${API_URL}/madlibs/${counterInfo.id}`, {
       method: 'PATCH',

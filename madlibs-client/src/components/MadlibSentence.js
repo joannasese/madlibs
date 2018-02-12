@@ -66,12 +66,25 @@ class MadlibSentence extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // console.log(state.madlibCounter.counter)
+  // console.log(state.madlibs.map(madlib => {
+  //   if (madlib.counter === state.madlibCounter.counter){
+  //     return madlib.id
+  //   }
+  // }))
+  //
+  // const filtered = state.madlibs.filter(madlib => {
+  //   return (madlib.counter === state.madlibCounter.counter)
+  // })
+  // console.log(filtered[filtered.length-1].id)
   return {
     counter: state.madlibCounter.counter,
+    // id: filtered.id
     id: state.madlibs.map(madlib => {
       if (madlib.counter === state.madlibCounter.counter){
         return madlib.id
       }
+      return madlib.id
     })
   }
 }
