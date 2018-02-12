@@ -1,16 +1,18 @@
+// import { resetMadlibForm } from './madlibForm';
+
 const API_URL = process.env.REACT_APP_API_URL
 
-const addToCounter = counter => {
-  console.log(counter)
+const addToCounter = data => {
   return {
     type: 'ADD_TO_COUNTER',
-    payload: counter
+    payload: data
+    // counter
   }
 }
 
 
-
 export const madlibCounter = (counterInfo) => {
+  console.log(counterInfo.id)
   return dispatch => {
     return fetch(`${API_URL}/madlibs/${counterInfo.id}`, {
       method: 'PATCH',
@@ -21,7 +23,8 @@ export const madlibCounter = (counterInfo) => {
     })
       .then(response => response.json())
       .then(counter => {
-        dispatch(addToCounter(counterInfo.counter))
+        dispatch(addToCounter(counterInfo))
+        // dispatch(resetMadlibForm())
       })
     }
 }

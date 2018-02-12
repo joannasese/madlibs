@@ -15,17 +15,14 @@ class MadlibSentence extends Component {
     }
   }
 
-  handleOnClick = (event) => {
+  handleOnLike = (event) => {
     event.preventDefault()
-
 
     const counterInfo = {
       counter: ++this.props.madlib.counter,
       id: this.props.madlib.id
     }
-
     this.props.madlibCounter(counterInfo)
-console.log("madlib sentence:" + this.props.madlib.counter)
     // this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
   }
 
@@ -58,20 +55,24 @@ console.log("madlib sentence:" + this.props.madlib.counter)
     //   const phrase = phrases[Math.floor(Math.random()*phrases.length)]
     //
     //   console.log(madlib.sentence)
-
     return (
       <div>
         {this.state.phrase}
-        <Counter counter={counter} id={id} handleOnClick={this.handleOnClick} />
+        <Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return ({
-    counter: state.counter,
-    id: state.id
+    // counter: state.madlibs[state.madlibs.length-1].counter,
+    counter: state.madlibCounter.counter,
+    id: state.madlibs.map(madlib => {
+      if (madlib.counter === state.madlibCounter.counter){
+        return madlib.id
+      }
+    })
   })
 }
 

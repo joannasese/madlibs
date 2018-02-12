@@ -15,15 +15,6 @@ export default (state = initialState, action) => {
       return action.madlibFormData;
     case 'RESET_MADLIB_FORM':
       return initialState;
-    case 'ADD_TO_COUNTER':
-console.log("reducer counter:" + action.payload)
-      // return {...state, counter: state.counter + 1}
-      // return Object.assign({}, state, {counter: state.counter})
-     return Object.assign({}, state, { counter: action.payload })
-
-
-
-
     default:
       return state;
   }
