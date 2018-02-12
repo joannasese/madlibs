@@ -21,7 +21,7 @@ class Api::MadlibsController < ApplicationController
   def update
     # @madlib = Madlib.find(params[:id])
     # @madlib.counter += 1;
-    if @madlib.save
+    if @madlib.update(madlib_params)
       render json: @madlib
     else
       render json: { message: @madlib.errors }, status: 400

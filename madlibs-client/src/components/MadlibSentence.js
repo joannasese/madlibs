@@ -22,17 +22,17 @@ class MadlibSentence extends Component {
       counter: ++this.props.madlib.counter,
       id: this.props.madlib.id
     }
-    this.props.getCounter(counterInfo)
+    // this.props.getCounter(counterInfo)
     this.props.madlibCounter(counterInfo)
   }
 
-  compondentDidMount(){
-    const counterInfo = {
-      counter: ++this.props.madlib.counter,
-      id: this.props.madlib.id
-    }
-    this.props.getCounter(counterInfo)
-  }
+  // compondentDidMount(){
+  //   const counterInfo = {
+  //     counter: ++this.props.madlib.counter,
+  //     id: this.props.madlib.id
+  //   }
+  //   this.props.getCounter(counterInfo)
+  // }
 
   componentWillMount() {
     const {madlib} = this.props

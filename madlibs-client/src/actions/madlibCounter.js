@@ -18,7 +18,7 @@ export const madlibCounter = (counterInfo) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({counter: counterInfo.counter})
+      body: JSON.stringify({madlib: counterInfo})
     })
       .then(response => response.json())
       .then(counter => {
