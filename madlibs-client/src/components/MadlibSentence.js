@@ -15,6 +15,15 @@ class MadlibSentence extends Component {
     }
   }
 
+  compondentDidMount(){
+    const counterInfo = {
+      counter: ++this.props.madlib.counter,
+      id: this.props.madlib.id
+    }
+
+    this.props.getCounter(counterInfo)
+  }
+
   handleOnLike = (event) => {
     event.preventDefault()
 
@@ -23,10 +32,9 @@ class MadlibSentence extends Component {
       id: this.props.madlib.id
     }
 
-    this.props.getCounter(counterInfo)
-
     this.props.madlibCounter(counterInfo)
     // this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
+    this.props.getCounter(counterInfo)
   }
 
   componentWillMount() {
@@ -67,7 +75,7 @@ class MadlibSentence extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   // console.log(state.madlibCounter.counter)
   // console.log(state.madlibs.map(madlib => {
   //   if (madlib.counter === state.madlibCounter.counter){
@@ -75,19 +83,16 @@ const mapStateToProps = (state) => {
   //   }
   // }))
   //
-  // const filtered = state.madlibs.filter(madlib => {
-  //   return (madlib.counter === state.madlibCounter.counter)
-  // })
-  // console.log(filtered[filtered.length-1].id)
+
   return {
     counter: state.madlibCounter.counter,
-    // id: filtered.id
-    id: state.madlibs.map(madlib => {
-      if (madlib.counter === state.madlibCounter.counter){
-        return madlib.id
-      }
-      return madlib.id
-    })
+    id: ownProps.madlib.id
+    // id: state.madlibs.map(madlib => {
+    //   if (madlib.counter === state.madlibCounter.counter){
+    //     return madlib.id
+    //   }
+    //   return madlib.id
+    // })
   }
 }
 
