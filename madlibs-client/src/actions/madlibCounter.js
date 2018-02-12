@@ -11,7 +11,6 @@ const addToCounter = data => {
   }
 }
 
-
 export const madlibCounter = (counterInfo) => {
   console.log(counterInfo.counter)
   return dispatch => {
@@ -28,4 +27,28 @@ export const madlibCounter = (counterInfo) => {
         // dispatch(resetMadlibForm())
       })
     }
+}
+
+const setCounter = counterInfo => {
+  return {
+    type: 'GET_COUNTER_SUCCESS',
+    counterInfo
+  }
+}
+
+export const getCounter = (counterInfo) => {
+  const headers = new Headers({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  })
+  return dispatch => {
+    return fetch(`${API_URL}/madlibs/${counterInfo.id}`, {
+      method: 'GET',
+      headers: headers,
+    })
+      .then(response => response.json())
+      .then(madlibs => dispatch(setCounter(counterInfo)))
+      .catch(error => console.log(error))
+  }
 }

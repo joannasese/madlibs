@@ -8,11 +8,15 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch(action.type) {
+    case 'GET_COUNTER_SUCCESS':
+    console.log(action.counterInfo)
+      return action.counterInfo;
     case 'ADD_TO_COUNTER':
-    console.log(action.payload)
-        return {...state,
-          counter: action.payload.counter
-        }
+      console.log(action.payload)
+      console.log(state.counter)
+      return {...state,
+        counter: action.payload.counter
+      }
         // return {...state,
         //   counter: state.counter
         // }

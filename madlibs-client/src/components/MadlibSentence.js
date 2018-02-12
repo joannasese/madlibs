@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
 import { getMadlibs } from '../actions/madlibsAction';
-import { madlibCounter } from '../actions/madlibCounter';
+import { madlibCounter, getCounter } from '../actions/madlibCounter';
 
 class MadlibSentence extends Component {
   constructor(props){
@@ -22,10 +22,12 @@ class MadlibSentence extends Component {
       counter: ++this.props.madlib.counter,
       id: this.props.madlib.id
     }
+
+    this.props.getCounter(counterInfo)
+
     this.props.madlibCounter(counterInfo)
     // this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
   }
-
 
   componentWillMount() {
     const {madlib} = this.props
@@ -91,5 +93,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   getMadlibs,
-  madlibCounter
+  madlibCounter,
+  getCounter
 })(MadlibSentence);
