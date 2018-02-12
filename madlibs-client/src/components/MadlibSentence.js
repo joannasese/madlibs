@@ -15,15 +15,6 @@ class MadlibSentence extends Component {
     }
   }
 
-  compondentDidMount(){
-    const counterInfo = {
-      counter: ++this.props.madlib.counter,
-      id: this.props.madlib.id
-    }
-
-    this.props.getCounter(counterInfo)
-  }
-
   handleOnLike = (event) => {
     event.preventDefault()
 
@@ -31,9 +22,15 @@ class MadlibSentence extends Component {
       counter: ++this.props.madlib.counter,
       id: this.props.madlib.id
     }
-
+    this.props.getCounter(counterInfo)
     this.props.madlibCounter(counterInfo)
-    // this.props.madlibCounter(this.props.madlib.counter, this.props.madlib.id)
+  }
+
+  compondentDidMount(){
+    const counterInfo = {
+      counter: ++this.props.madlib.counter,
+      id: this.props.madlib.id
+    }
     this.props.getCounter(counterInfo)
   }
 

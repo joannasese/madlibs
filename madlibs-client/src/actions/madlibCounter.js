@@ -12,7 +12,6 @@ const addToCounter = data => {
 }
 
 export const madlibCounter = (counterInfo) => {
-  console.log(counterInfo.counter)
   return dispatch => {
     return fetch(`${API_URL}/madlibs/${counterInfo.id}`, {
       method: 'PATCH',
