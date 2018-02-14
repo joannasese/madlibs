@@ -58,3 +58,27 @@ export const createMadlib = madlib => {
       .catch(error => console.log(error))
   }
 }
+
+const addToCounter = data => {
+  return {
+    type: 'ADD_TO_COUNTER',
+    payload: data
+    // counter
+  }
+}
+
+export const madlibCounter = (counterInfo) => {
+  return dispatch => {
+    return fetch(`${API_URL}/madlibs/${counterInfo.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({madlib: counterInfo})
+    })
+      .then(response => response.json())
+      .then(counter => {
+        dispatch(addToCounter(counterInfo))
+      })
+    }
+}

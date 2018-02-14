@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
-import { getMadlibs } from '../actions/madlibsAction';
-import { madlibCounter } from '../actions/madlibCounter';
+import { getMadlibs, madlibCounter } from '../actions/madlibsAction';
+// import { madlibCounter } from '../actions/madlibCounter';
 
 class MadlibSentence extends Component {
   constructor(props){
@@ -17,11 +17,13 @@ class MadlibSentence extends Component {
 
   handleOnLike = (event) => {
     event.preventDefault()
-
     const counterInfo = {
-      counter: ++this.props.madlib.counter,
+      // counter: ++this.props.madlib.counter,
+      counter: this.props.madlib.counter,
       id: this.props.madlib.id
+
     }
+    console.log(counterInfo.counter)
     this.props.madlibCounter(counterInfo)
   }
 
@@ -64,23 +66,10 @@ class MadlibSentence extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state.madlibCounter.counter)
-  // console.log(state.madlibs.map(madlib => {
-  //   if (madlib.counter === state.madlibCounter.counter){
-  //     return madlib.id
-  //   }
-  // }))
-  //
-
   return {
-    counter: state.madlibCounter.counter,
-    id: ownProps.madlib.id
-    // id: state.madlibs.map(madlib => {
-    //   if (madlib.counter === state.madlibCounter.counter){
-    //     return madlib.id
-    //   }
-    //   return madlib.id
-    // })
+    // counter: state.madlibCounter.counter,
+    counter: ownProps.madlib.counter,
+    id: ownProps.madlib.counter
   }
 }
 

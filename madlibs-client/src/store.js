@@ -7,12 +7,12 @@ import {
 import thunk from 'redux-thunk';
 import madlibs from './reducers/madlibs';
 import madlibFormData from './reducers/madlibFormData';
-import madlibCounter from './reducers/madlibCounter';
+// import madlibCounter from './reducers/madlibCounter';
 
 const reducers = combineReducers({
   madlibs: madlibs,
-  madlibFormData: madlibFormData,
-  madlibCounter: madlibCounter
+  madlibFormData: madlibFormData
+  // madlibCounter: madlibCounter
 });
 
 const middleware = [thunk];
