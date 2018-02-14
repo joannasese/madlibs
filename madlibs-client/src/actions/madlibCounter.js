@@ -27,27 +27,3 @@ export const madlibCounter = (counterInfo) => {
       })
     }
 }
-
-const setCounter = counterInfo => {
-  return {
-    type: 'GET_COUNTER_SUCCESS',
-    counterInfo
-  }
-}
-
-export const getCounter = (counterInfo) => {
-  const headers = new Headers({
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  })
-  return dispatch => {
-    return fetch(`${API_URL}/madlibs/${counterInfo.id}`, {
-      method: 'GET',
-      headers: headers,
-    })
-      .then(response => response.json())
-      .then(madlibs => dispatch(setCounter(counterInfo)))
-      .catch(error => console.log(error))
-  }
-}
