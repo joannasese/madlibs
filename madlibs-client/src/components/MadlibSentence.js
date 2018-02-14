@@ -18,12 +18,10 @@ class MadlibSentence extends Component {
   handleOnLike = (event) => {
     event.preventDefault()
     const counterInfo = {
-      // counter: ++this.props.madlib.counter,
-      counter: this.props.madlib.counter,
+      counter: this.props.madlib.counter + 1,
       id: this.props.madlib.id
 
     }
-    console.log(counterInfo.counter)
     this.props.madlibCounter(counterInfo)
   }
 
@@ -66,10 +64,12 @@ class MadlibSentence extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state)
+  //currently not active
   return {
     // counter: state.madlibCounter.counter,
-    // counter: ownProps.madlib.counter,
-    // id: ownProps.madlib.counter
+    counter: ownProps.madlib.counter,
+    id: ownProps.madlib.counter
   }
 }
 

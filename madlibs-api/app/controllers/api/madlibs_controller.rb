@@ -19,8 +19,7 @@ class Api::MadlibsController < ApplicationController
   end
 
   def update
-    # @madlib = Madlib.find(params[:id])
-    # @madlib.counter += 1;
+    # byebug
     if @madlib.update(madlib_params)
       render json: @madlib
     else
