@@ -68,8 +68,8 @@ class MadlibSentence extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     // counter: state.madlibCounter.counter,
-    counter: ownProps.madlib.counter,
-    id: ownProps.madlib.counter
+    // counter: ownProps.madlib.counter,
+    // id: ownProps.madlib.counter
   }
 }
 
