@@ -31,13 +31,8 @@ class AllMadlibs extends Component {
 // in mapStateToProps() we specify exactly which slice of the state
 // we want to provide to our component.
 const mapStateToProps = (state) => {
-  const noT = state.madlibs.filter(madlib => {
-   return !(madlib.noun[0] === 't') &&
-   !(madlib.adj[0] === 't') &&
-   !(madlib.verb[0] === 't')
-  })
   return {
-    madlibs: noT
+    madlibs: state.madlibs
   }
 }
 
