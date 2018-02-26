@@ -32,7 +32,7 @@ class AllMadlibs extends Component {
 // we want to provide to our component.
 const mapStateToProps = (state) => {
   return {
-    madlibs: state.madlibs
+    madlibs: state.madlibs.slice(state.madlibs.length-10, state.madlibs.length)
   }
 }
 
