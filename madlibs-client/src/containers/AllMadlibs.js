@@ -19,6 +19,7 @@ class AllMadlibs extends Component {
           {this.props.madlibs.reverse().map((madlib, index, array) => {
             if (madlib.noun && madlib.adj && madlib.verb){
               return <div key={madlib.id} className="sentence" >
+                {madlib.sentence}
                 <MadlibSentence key={madlib.id} madlib={madlib} />
               </div>
             }

@@ -59,14 +59,14 @@ export const createMadlib = madlib => {
   }
 }
 
-export const addSentence = (sentence, id) => {
+export const addSentence = (madlibInfo) => {
   return dispatch => {
-    return fetch(`${API_URL}/madlibs/${id}`, {
+    return fetch(`${API_URL}/madlibs/${madlibInfo.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ sentence: sentence })
+      body: JSON.stringify({ madlib: madlibInfo })
     })
       .then(response => response.json())
       .then(data => {dispatch ({ type: 'ADD_SENTENCE', payload: data} )})

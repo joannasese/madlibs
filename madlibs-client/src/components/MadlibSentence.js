@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
-import { getMadlibs, madlibCounter } from '../actions/madlibsAction';
+import { getMadlibs, madlibCounter, addSentence } from '../actions/madlibsAction';
 
 class MadlibSentence extends Component {
   constructor(props){
@@ -40,8 +40,15 @@ class MadlibSentence extends Component {
   render(){
     const {counter} = this.props.madlib
     const {id} = this.props.madlib
+    const {sentence} = this.props.sentence
+    // let madlibInfo = {
+    //   sentence: {sentence},
+    //   id: {id}
+    // }
+
     return (
       <div>
+        {sentence}
         {this.state.phrase}
         <Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
       </div>
@@ -54,11 +61,13 @@ const mapStateToProps = (state, ownProps) => {
   //currently not active
   return {
     counter: ownProps.madlib.counter,
-    id: ownProps.madlib.counter
+    id: ownProps.madlib.counter,
+    sentence: ownProps.madlib.sentence
   }
 }
 
 export default connect(mapStateToProps, {
   getMadlibs,
-  madlibCounter
+  madlibCounter,
+  addSentence
 })(MadlibSentence);
