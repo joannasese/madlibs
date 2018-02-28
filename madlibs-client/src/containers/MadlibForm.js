@@ -1,13 +1,12 @@
 //containers
 
-//testing git branch
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { updateMadlibFormData } from '../actions/madlibForm';
 import { createMadlib } from '../actions/madlibsAction';
 import { getMadlibs } from '../actions/madlibsAction';
+import { addSentence } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
 
 class MadlibForm extends Component {
@@ -23,6 +22,8 @@ class MadlibForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createMadlib(this.props.madlibFormData)
+    //on submit, persist randomized madlib to database
+    this.props.addSentence(this.props.madlibFormData.noun)
   }
 
   compondentDidMount() {

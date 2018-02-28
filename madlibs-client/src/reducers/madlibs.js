@@ -24,6 +24,10 @@ export default (state = [], action) => {
       //   }
       // })
 
+    case 'ADD_SENTENCE':
+      console.log(object)
+      return Object.assign({}, object, {sentence: action.sentence})
+
     default:
       return state;
   }

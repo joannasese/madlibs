@@ -59,6 +59,21 @@ export const createMadlib = madlib => {
   }
 }
 
+export const addSentence = (sentence) => {
+  return dispatch => {
+    return fetch(`${API_URL}/madlibs`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ sentence: sentence })
+    })
+      .then(response => response.json())
+      .then(sentence => {dispatch ({ type: 'ADD_SENTENCE', sentence} )})
+      .catch(error => console.log(error))
+  }
+}
+
 // const addToCounter = data => {
 //   return {
 //     type: 'ADD_TO_COUNTER',
