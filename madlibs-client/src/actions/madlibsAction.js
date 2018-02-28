@@ -59,17 +59,17 @@ export const createMadlib = madlib => {
   }
 }
 
-export const addSentence = (sentence) => {
+export const addSentence = (sentence, id) => {
   return dispatch => {
-    return fetch(`${API_URL}/madlibs`, {
-      method: 'POST',
+    return fetch(`${API_URL}/madlibs/${id}`, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ sentence: sentence })
     })
       .then(response => response.json())
-      .then(sentence => {dispatch ({ type: 'ADD_SENTENCE', sentence} )})
+      .then(data => {dispatch ({ type: 'ADD_SENTENCE', payload: data} )})
       .catch(error => console.log(error))
   }
 }

@@ -23,7 +23,8 @@ class MadlibForm extends Component {
     event.preventDefault()
     this.props.createMadlib(this.props.madlibFormData)
     //on submit, persist randomized madlib to database
-    this.props.addSentence(this.props.madlibFormData.noun)
+    //currently hardcoded input to test patch mechanism
+    this.props.addSentence(this.props.madlibFormData.noun, 885)
   }
 
   compondentDidMount() {
@@ -103,5 +104,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   updateMadlibFormData, //equivalent to mapDispatchToProps, except return statement is in actions.
   createMadlib, //equivalent to mapDispatchToProps, except return statement is in actions.
-  getMadlibs
+  getMadlibs,
+  addSentence
 })(MadlibForm);
