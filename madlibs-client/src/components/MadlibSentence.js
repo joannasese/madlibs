@@ -35,20 +35,20 @@ class MadlibSentence extends Component {
         <div key={madlib.id}>The <strong>{madlib.adj} {madlib.noun}</strong> always wanted to learn how to <strong>{madlib.verb}</strong>.</div>
       ]
     this.setState({phrase: phrases[Math.floor(Math.random()*phrases.length)] })
+
+    // let madlibInfo = {
+    //   sentence: madlib.noun,
+    //   id: madlib.id
+    // }
+    // this.props.addSentence(madlibInfo)
   }
 
   render(){
-    const {counter} = this.props.madlib
-    const {id} = this.props.madlib
-    const {sentence} = this.props.sentence
-    // let madlibInfo = {
-    //   sentence: {sentence},
-    //   id: {id}
-    // }
+    const {counter, id, sentence} = this.props.madlib
 
     return (
       <div>
-        {sentence}
+        API: {sentence}
         {this.state.phrase}
         <Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
       </div>
@@ -57,7 +57,6 @@ class MadlibSentence extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state)
   //currently not active
   return {
     counter: ownProps.madlib.counter,

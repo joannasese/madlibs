@@ -25,8 +25,6 @@ export default (state = [], action) => {
       // })
 
     case 'ADD_SENTENCE':
-      console.log(state)
-      console.log(action.payload)
       return Object.assign({}, state, {sentence: action.payload.sentence})
 
     default:

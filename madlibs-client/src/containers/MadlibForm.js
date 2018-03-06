@@ -22,12 +22,11 @@ class MadlibForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createMadlib(this.props.madlibFormData)
-
     //on submit, persist randomized madlib to database
     //currently hardcoded input to test patch mechanism
     // let madlibInfo = {
     //   sentence: this.props.madlibFormData.noun,
-    //   id: 885
+    //   id: this.props.madlibs.id
     // }
     // this.props.addSentence(madlibInfo)
   }
@@ -77,19 +76,10 @@ class MadlibForm extends Component {
           <button type="submit" className="button">Submit</button>
         </form>
 
-        <div>
           {this.props.madlibs.map((madlib, index, array) => {
             if (array.length-1 === index) {
               if (madlib.noun && madlib.adj && madlib.verb){
-
-                let madlibInfo = {
-                  sentence: madlib.noun,
-                  id: madlib.id
-                }
-                {this.props.addSentence(madlibInfo)}
-
                 return <div key={madlib.id} className="sentence" >
-                  {madlib.sentence}
                   <MadlibSentence key={madlib.id} madlib={madlib} />
                 </div>
               } else {
@@ -97,8 +87,6 @@ class MadlibForm extends Component {
               }
             }
           })}
-
-        </div>
       </div>
     )
   }
