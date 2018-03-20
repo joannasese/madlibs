@@ -4,9 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { updateMadlibFormData } from '../actions/madlibForm';
-import { createMadlib } from '../actions/madlibsAction';
-import { getMadlibs } from '../actions/madlibsAction';
-import { addSentence } from '../actions/madlibsAction';
+import { createMadlib, getMadlibs } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
 
 class MadlibForm extends Component {
@@ -106,6 +104,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   updateMadlibFormData, //equivalent to mapDispatchToProps, except return statement is in actions.
   createMadlib, //equivalent to mapDispatchToProps, except return statement is in actions.
-  getMadlibs,
-  addSentence
+  getMadlibs
 })(MadlibForm);

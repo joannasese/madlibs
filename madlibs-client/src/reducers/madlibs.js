@@ -12,20 +12,15 @@ export default (state = [], action) => {
     case 'ADD_TO_COUNTER':
       const object = state.filter(obj => obj.id === action.payload.id)[0]
       const newObj = Object.assign({}, object, {counter: action.payload.counter})
-// return newObj
       return state.map(object => object.id === action.payload.id ? newObj : object)
 
-      // state.map(object => {
-      //   if (object.id === action.payload.id){
-      //     return Object.assign({}, object, {counter: action.payload.counter + 1})
-      //     // return {...object,
-      //     //   counter: ++action.payload.counter
-      //       // counter: object.counter + 1
-      //   }
-      // })
-
     case 'ADD_SENTENCE':
-      return Object.assign({}, state, {sentence: action.payload.sentence})
+      // return Object.assign({}, state, {sentence: action.payload.sentence})
+
+      const bun = state.filter(obj => obj.id === action.payload.id)[0]
+      const newBun = Object.assign({}, bun, {sentence: action.payload.sentence})
+      return state.map(bun => bun.id === action.payload.id ? newBun : bun)
+
 
     default:
       return state;
