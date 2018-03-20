@@ -26,21 +26,30 @@ class MadlibSentence extends Component {
   }
 
   handleOnSave = (event) => {
-console.log(this.state.phrase.props.children)
     event.preventDefault()
     let array = this.state.phrase.props.children
-    for (let word of array){
+    let newArray = array.slice(0, array.length)
+    // let newArray = [];
+    for (let word of newArray){
       if (typeof word !== "string"){
-        console.log(word.props.children)
-      } else {
-        console.log("string")
+        // console.log(array.indexOf(word))
+        // word = word.props.children
+        //
+        // console.log(word)
+
+        newArray.splice(newArray.indexOf(word), 1, word.props.children)
+        let madlibInfo = {
+          sentence: newArray.join(''),
+          id: this.props.madlib.id
+        }
+        this.props.addSentence(madlibInfo)
       }
     }
-    let madlibInfo = {
-      sentence: this.state.phrase.props.children.join(''),
-      id: this.props.madlib.id
-    }
-    this.props.addSentence(madlibInfo)
+    // let madlibInfo = {
+    //   sentence: array.join(''),
+    //   id: this.props.madlib.id
+    // }
+    // this.props.addSentence(madlibInfo)
   }
 
   componentWillMount() {
