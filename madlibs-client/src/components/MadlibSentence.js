@@ -29,14 +29,8 @@ class MadlibSentence extends Component {
     event.preventDefault()
     let array = this.state.phrase.props.children
     let newArray = array.slice(0, array.length)
-    // let newArray = [];
     for (let word of newArray){
       if (typeof word !== "string"){
-        // console.log(array.indexOf(word))
-        // word = word.props.children
-        //
-        // console.log(word)
-
         newArray.splice(newArray.indexOf(word), 1, word.props.children)
         let madlibInfo = {
           sentence: newArray.join(''),
@@ -71,7 +65,6 @@ class MadlibSentence extends Component {
 
     return (
       <div>
-        API: {sentence}
         {this.state.phrase}
         <Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
         <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />

@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
+import Counter from '../components/Counter';
 import './Madlibs.css';
 import { getMadlibs } from '../actions/madlibsAction';
 import MadlibSentence from '../components/MadlibSentence';
@@ -20,6 +21,9 @@ class AllMadlibs extends Component {
             if (madlib.noun && madlib.adj && madlib.verb){
               return <div key={madlib.id} className="sentence" >
                 <MadlibSentence key={madlib.id} madlib={madlib} />
+
+                {madlib.sentence}
+                <Counter counter={madlib.counter} id={madlib.id} handleOnLike={MadlibSentence.handleOnLike} />
               </div>
             }
           })}
