@@ -1,6 +1,7 @@
 //components
 
 import React, { Component } from 'react';
+import ReactDOMServer from 'react-dom/server';
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
 import Save from '../components/Save';
@@ -27,8 +28,16 @@ class MadlibSentence extends Component {
   handleOnSave = (event) => {
 console.log(this.state.phrase.props.children)
     event.preventDefault()
+    let array = this.state.phrase.props.children
+    for (let word of array){
+      if (typeof word !== "string"){
+        console.log(word.props.children)
+      } else {
+        console.log("string")
+      }
+    }
     let madlibInfo = {
-      sentence: this.state.phrase.props.children,
+      sentence: this.state.phrase.props.children.join(''),
       id: this.props.madlib.id
     }
     this.props.addSentence(madlibInfo)
@@ -38,7 +47,7 @@ console.log(this.state.phrase.props.children)
     const {madlib} = this.props
     let phrases =
       [
-        <div key={madlib.id}>The <strong>{madlib.adj.toString()} {madlib.noun.toString()}</strong> enjoys when I <strong>{madlib.verb.toString()}</strong>.</div>,
+        <div key={madlib.id}>The <strong>{madlib.adj} {madlib.noun}</strong> enjoys when I <strong>{madlib.verb}</strong>.</div>,
         <div key={madlib.id}>Everyone would <strong>{madlib.verb}</strong> a <strong>{madlib.adj} {madlib.noun}</strong>.</div>,
         <div key={madlib.id}>Sometimes I wish <strong>{madlib.noun}</strong> would be <strong>{madlib.adj}</strong> when it is time to <strong>{madlib.verb}</strong>.</div>,
         <div key={madlib.id}>Heavy is the <strong>{madlib.noun}</strong> that needs to <strong>{madlib.verb}</strong> during <strong>{madlib.adj}</strong> hour.</div>,
