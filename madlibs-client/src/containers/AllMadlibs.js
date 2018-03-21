@@ -14,13 +14,13 @@ class AllMadlibs extends Component {
   }
 
   render() {
+    // below try to get counter to work by calling counter from another component
     return (
       <div>
         <p>A bunch of random thoughts:</p>
           {this.props.madlibs.reverse().map((madlib, index, array) => {
-            if (madlib.noun && madlib.adj && madlib.verb){
+            if (madlib.sentence){
               return <div key={madlib.id} className="sentence" >
-                <MadlibSentence key={madlib.id} madlib={madlib} />
 
                 {madlib.sentence}
                 <Counter counter={madlib.counter} id={madlib.id} handleOnLike={MadlibSentence.handleOnLike} />

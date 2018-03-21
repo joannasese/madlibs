@@ -1,11 +1,14 @@
 //components
 
 import React, { Component } from 'react';
-import ReactDOMServer from 'react-dom/server';
+import { BrowserRouter as Router,
+  Link,
+  Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
 import Save from '../components/Save';
 import { getMadlibs, madlibCounter, addSentence } from '../actions/madlibsAction';
+import AllMadlibs from '../containers/AllMadlibs';
 
 class MadlibSentence extends Component {
   constructor(props){
@@ -39,11 +42,6 @@ class MadlibSentence extends Component {
         this.props.addSentence(madlibInfo)
       }
     }
-    // let madlibInfo = {
-    //   sentence: array.join(''),
-    //   id: this.props.madlib.id
-    // }
-    // this.props.addSentence(madlibInfo)
   }
 
   componentWillMount() {
@@ -62,13 +60,18 @@ class MadlibSentence extends Component {
   render(){
     // console.log(this.state.phrase)
     const {counter, id, sentence} = this.props.madlib
-
+// below try to link save button to All Madlibs page
     return (
+      <Router>
       <div>
         {this.state.phrase}
         <Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
-        <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />
+        <Link to='/more-madlibs'>
+          <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />
+        </Link>
+        <Route exact path="/more-madlibs" component={AllMadlibs} />
       </div>
+      </Router>
     )
   }
 }
