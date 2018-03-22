@@ -1,5 +1,6 @@
 import React from 'react';
 
+// props from MadlibSentence
 const Counter = (props) => {
   return (
     <div>

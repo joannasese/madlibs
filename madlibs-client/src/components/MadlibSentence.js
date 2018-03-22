@@ -1,7 +1,8 @@
 //components
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router,
+import { BrowserRouter as
+  Router,
   Link,
   Route } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -58,11 +59,12 @@ class MadlibSentence extends Component {
   }
 
   render(){
-    // console.log(this.state.phrase)
+    console.log(this.props.madlib)
     const {counter, id, sentence} = this.props.madlib
 // below try to link save button to All Madlibs page
+// show 'save' on MadlibForm only - not on AllMadlibs
     return (
-      <Router>
+    <Router>
       <div>
         {this.state.phrase}
         <Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
@@ -71,7 +73,7 @@ class MadlibSentence extends Component {
         </Link>
         <Route exact path="/more-madlibs" component={AllMadlibs} />
       </div>
-      </Router>
+    </Router>
     )
   }
 }
