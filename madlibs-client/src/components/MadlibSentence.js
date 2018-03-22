@@ -31,17 +31,17 @@ class MadlibSentence extends Component {
   handleOnSave = (event) => {
     event.preventDefault()
     let array = this.state.phrase.props.children
-    let newArray = array.slice(0, array.length)
+    let newArray = array.slice(0, array.length) // make copy of array
     for (let word of newArray){
-      if (typeof word !== "string"){
-        newArray.splice(newArray.indexOf(word), 1, word.props.children)
-        let madlibInfo = {
-          sentence: newArray.join(''),
-          id: this.props.madlib.id
-        }
-        this.props.addSentence(madlibInfo)
+      if (typeof word !== "string"){ // basically, if 'word' is react element
+        newArray.splice(newArray.indexOf(word), 1, word.props.children) // replace react element with string
       }
     }
+    let madlibInfo = {
+      sentence: newArray.join(''),
+      id: this.props.madlib.id
+    }
+    this.props.addSentence(madlibInfo)
   }
 
   componentWillMount() {
