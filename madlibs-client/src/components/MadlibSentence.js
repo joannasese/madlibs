@@ -65,6 +65,7 @@ class MadlibSentence extends Component {
     this.setState({phrase: phrases[Math.floor(Math.random()*phrases.length)] })
   }
 
+// todo: disable save after click, replace with 'saved!'
   render(){
     const {counter, id, sentence} = this.props.madlib
     const option = window.location.pathname === '/more-madlibs' ?
@@ -82,7 +83,6 @@ class MadlibSentence extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //currently not active
   return {
     counter: ownProps.madlib.counter,
     id: ownProps.madlib.id,

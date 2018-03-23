@@ -17,7 +17,7 @@ const NavBar = () =>
             <MenuItem>Create</MenuItem>
           </LinkContainer>
           <LinkContainer to='/more-madlibs'>
-            <MenuItem eventKey>More Madlibs</MenuItem>
+            <MenuItem eventKey>Saved Madlibs</MenuItem>
           </LinkContainer>
         </NavDropdown>
 
