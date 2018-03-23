@@ -45,6 +45,11 @@ class MadlibSentence extends Component {
     this.props.addSentence(madlibInfo)
   }
 
+  handleOnRefresh = (event) => {
+    event.preventDefault()
+    window.location.reload()
+  }
+
   componentWillMount() {
     const {madlib} = this.props
     let phrases =
@@ -60,19 +65,16 @@ class MadlibSentence extends Component {
 
   render(){
     const {counter, id, sentence} = this.props.madlib
-    const button = window.location.pathname === '/more-madlibs' ?
-    (<Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
-    ) : (
-    <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />)
-
-// below try to link save button to All Madlibs page
-// show 'save' on MadlibForm only - not on AllMadlibs
+    const option = window.location.pathname === '/more-madlibs' ?
+      (<Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
+      ) : (
+      <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />)
     return (
       <div>
         {window.location.pathname === '/more-madlibs' ? sentence : this.state.phrase}
-        {button}
+        {option}
+        {window.location.pathname === '/madlibs' ? (<button onClick={this.handleOnRefresh}>Clear</button>) : null}
       </div>
-
     )
   }
 }

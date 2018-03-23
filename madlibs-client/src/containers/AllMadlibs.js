@@ -20,12 +20,9 @@ console.log(window.location.pathname)
       <div>
         <p>A bunch of random thoughts:</p>
           {this.props.madlibs.reverse().map((madlib, index, array) => {
-
             if (madlib.sentence){
               return <div key={madlib.id} className="sentence" >
-
                 <MadlibSentence key={madlib.id} madlib={madlib} />
-
               </div>
             }
           })}
