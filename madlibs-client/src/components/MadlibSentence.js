@@ -47,7 +47,9 @@ class MadlibSentence extends Component {
 
   handleOnRefresh = (event) => {
     event.preventDefault()
-    window.location.reload()
+    // window.location.reload()
+    var toggle = document.getElementById("madlib-block");
+    toggle.style.display = "none";
   }
 
   componentWillMount() {
@@ -70,7 +72,7 @@ class MadlibSentence extends Component {
       ) : (
       <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />)
     return (
-      <div>
+      <div id="madlib-block">
         {window.location.pathname === '/more-madlibs' ? sentence : this.state.phrase}
         {option}
         {window.location.pathname === '/madlibs' ? (<button onClick={this.handleOnRefresh}>Clear</button>) : null}
