@@ -59,21 +59,20 @@ class MadlibSentence extends Component {
   }
 
   render(){
-    console.log(this.props.madlib)
     const {counter, id, sentence} = this.props.madlib
+    const button = window.location.pathname === '/more-madlibs' ?
+    (<Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
+    ) : (
+    <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />)
+
 // below try to link save button to All Madlibs page
 // show 'save' on MadlibForm only - not on AllMadlibs
     return (
-    <Router>
       <div>
         {this.state.phrase}
-        <Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
-        <Link to='/more-madlibs'>
-          <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />
-        </Link>
-        <Route exact path="/more-madlibs" component={AllMadlibs} />
+        {button}
       </div>
-    </Router>
+
     )
   }
 }

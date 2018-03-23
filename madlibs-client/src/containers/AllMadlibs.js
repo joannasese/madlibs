@@ -14,13 +14,19 @@ class AllMadlibs extends Component {
   }
 
   render() {
+console.log(window.location.pathname)
+    // below try to get counter to work by calling handleOnLike from MadlibSentence component
     return (
       <div>
         <p>A bunch of random thoughts:</p>
           {this.props.madlibs.reverse().map((madlib, index, array) => {
+
             if (madlib.sentence){
               return <div key={madlib.id} className="sentence" >
+
                 {madlib.sentence}
+                <MadlibSentence key={madlib.id} madlib={madlib} />
+
               </div>
             }
           })}
