@@ -1,4 +1,10 @@
 .sentence {
   padding: 20px;
-  color: purple;
+  color: #000000;
+}
+
+.counter {
+  color: pink;
+  padding-right: 5px;
+  float: left;
 }
