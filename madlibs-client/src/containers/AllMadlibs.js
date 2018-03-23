@@ -24,7 +24,6 @@ console.log(window.location.pathname)
             if (madlib.sentence){
               return <div key={madlib.id} className="sentence" >
 
-                {madlib.sentence}
                 <MadlibSentence key={madlib.id} madlib={madlib} />
 
               </div>

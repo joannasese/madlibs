@@ -69,7 +69,7 @@ class MadlibSentence extends Component {
 // show 'save' on MadlibForm only - not on AllMadlibs
     return (
       <div>
-        {this.state.phrase}
+        {window.location.pathname === '/more-madlibs' ? sentence : this.state.phrase}
         {button}
       </div>
 
