@@ -68,13 +68,13 @@ class MadlibSentence extends Component {
 // todo: disable save after click, replace with 'saved!'
   render(){
     const {counter, id, sentence} = this.props.madlib
-    const option = window.location.pathname === '/more-madlibs' ?
+    const option = window.location.pathname === '/saved-madlibs' ?
       (<Counter counter={counter} id={id} handleOnLike={this.handleOnLike} />
       ) : (
       <Save sentence={sentence} id={id} handleOnSave={this.handleOnSave} />)
     return (
       <div id="madlib-block">
-        {window.location.pathname === '/more-madlibs' ? sentence : this.state.phrase}
+        {window.location.pathname === '/saved-madlibs' ? sentence : this.state.phrase}
         {option}
         {window.location.pathname === '/madlibs' ? (<button onClick={this.handleOnRefresh}>Clear</button>) : null}
       </div>
