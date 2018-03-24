@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap-theme.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 
 const NavBar = () =>
